@@ -1,0 +1,29 @@
+name: ng-guitar CI
+
+env:
+  node-version: 16.x
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node-version }}
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
