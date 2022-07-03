@@ -7,6 +7,7 @@
   "cli": {
     "packageManager": "npm"
   },
+  "defaultProject": "demo",
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -41,6 +42,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "demo"
+  }
 }

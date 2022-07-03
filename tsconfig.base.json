@@ -1,19 +1,19 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
+    "baseUrl": ".",
     "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
     "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "rootDir": ".",
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es2015",
     "paths": {
       "@ng-guitar/shared-ui": ["libs/shared/ui/src/index.ts"]
     }
