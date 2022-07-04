@@ -1,6 +1,8 @@
-name: ng-guitar CI
+name: ng-guitar-ci
 
 env:
+  is-main-branch: ${{ gihub.ref == "refs/heads/main" }}
+  is-pull-request: ${{ github.event_name == "pull_request" }}
   node-version: 16.x
 
 on:
