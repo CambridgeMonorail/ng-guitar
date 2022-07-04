@@ -1,6 +1,6 @@
 {
   "name": "ng-guitar",
-  "packageManager": "npm",
+  "packageManager": "npm@6.x",
   "version": "0.0.0",
   "description": "Angular UI components for building applications for guitarists.",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "pre-commit": "lint-staged",
     "start": "ng serve",
-    "test": "ng test",
+    "test": "nx run-many --target=test --all --parallel",
     "update:check": "ng update",
     "update": "ng update @nrwl/workspace",
     "watch": "ng build --watch --configuration development",
