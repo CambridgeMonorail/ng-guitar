@@ -12,6 +12,22 @@
   </a>
 </p>
 
+<p>
+
+![GitHub branch checks state](https://img.shields.io/github/checks-status/TimDMorris/ng-guitar/main?style=for-the-badge)
+[![CI Status](https://github.com/TimDMorris/ng-guitar/workflows/ng-guitar-ci/badge.svg)](https://github.com/TimDMorris/ng-guitar/actions)
+
+</p>
+
+<p>
+  <a href="https://angular.io/" target="_blank">
+    <img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" />
+  </a>
+    <a href="https://www.typescriptlang.org/" target="_blank">
+    <img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
+</p>
+
 > Guitar Related Components for Angular - Work In Progress
 
 ### 🏠 [Homepage](http://localhost:4200)
