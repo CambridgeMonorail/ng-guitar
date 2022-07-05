@@ -1,4 +1,4 @@
-name: ng-guitar-ci
+name: build-and-deploy
 
 env:
   is-main-branch: ${{ github.ref == 'refs/heads/main' }}
@@ -6,24 +6,29 @@ env:
   node-version: 16.x
 
 on:
-  pull_request: {}
-  workflow_dispatch: {}
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
-    name: Build
+    name: build-and-deploy
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - name: Configure Node
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ env.node-version }}
           cache: npm
+
       - name: Install dependencies
         run: npm install
 
@@ -35,3 +40,9 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist/apps/demo # The folder the action should deploy.
+
