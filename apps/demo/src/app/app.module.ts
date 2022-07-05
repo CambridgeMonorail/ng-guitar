@@ -11,18 +11,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { DrawerRailModule } from 'angular-material-rail-drawer';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MetronomeModule } from '@ng-guitar/metronome';
 
 @NgModule({
   declarations: [AppComponent, ShellComponent],
   imports: [
-    BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule,
+    BrowserModule,
+    DrawerRailModule,
+    FlexLayoutModule,
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MetronomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

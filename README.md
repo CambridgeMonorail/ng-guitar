@@ -29,9 +29,9 @@
 
 > Guitar Related Components for Angular - Work In Progress
 
-### 🏠 [Homepage](http://localhost:4200)
+### 🏠 [Homepage](https://timdmorris.github.io/ng-guitar/)
 
-### ✨ [Demo](http://localhost:4200)
+### ✨ [Demo](https://timdmorris.github.io/ng-guitar/)
 
 ## Install
 
@@ -55,7 +55,7 @@ npm run test
 
 👤 **TimDMorris**
 
-- Website: http://localhost:4200
+- Website: <https://timdmorris.github.io/ng-guitar/>
 - Twitter: [@TimDMorris](https://twitter.com/TimDMorris)
 - Github: [@TimDMorris](https://github.com/TimDMorris)
 - LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
