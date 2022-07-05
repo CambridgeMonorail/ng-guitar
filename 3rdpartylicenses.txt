@@ -32,6 +32,9 @@ MIT
 @angular/core
 MIT
 
+@angular/flex-layout
+MIT
+
 @angular/forms
 MIT
 
@@ -62,6 +65,10 @@ THE SOFTWARE.
 
 @angular/platform-browser
 MIT
+
+@ng-guitar/metronome
+
+angular-material-rail-drawer
 
 rxjs
 Apache-2.0
