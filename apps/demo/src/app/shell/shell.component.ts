@@ -17,4 +17,9 @@ export class ShellComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  openedChange(val: any) {
+    console.log('openedChange: ', val);
+  }
 }

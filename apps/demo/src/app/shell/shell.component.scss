@@ -1,5 +1,6 @@
-.sidenav-container {
+.shell-wrapper {
   height: 100%;
+  width: 100%;
 }
 
 .sidenav {
@@ -22,6 +23,6 @@
 }
 
 .mat-toolbar {
-  background-image: url('/assets/images/grid.svg');
+  background-image: url('^/assets/images/grid.svg');
   background-repeat: repeat repeat;
 }

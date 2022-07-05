@@ -15,6 +15,7 @@
     "sourceMap": true,
     "target": "es2015",
     "paths": {
+      "@ng-guitar/metronome": ["libs/metronome/src/index.ts"],
       "@ng-guitar/shared-ui": ["libs/shared/ui/src/index.ts"]
     }
   },
