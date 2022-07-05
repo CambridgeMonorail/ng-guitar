@@ -14,8 +14,7 @@
 
 <p>
 
-![GitHub branch checks state](https://img.shields.io/github/checks-status/TimDMorris/ng-guitar/main)
-[![CI Status](https://github.com/TimDMorris/ng-guitar/workflows/ng-guitar-ci/badge.svg)](https://github.com/TimDMorris/ng-guitar/actions)
+[![CI Status](https://github.com/TimDMorris/ng-guitar/workflows/build-and-deploy/badge.svg)](https://github.com/TimDMorris/ng-guitar/actions)
 
 </p>
 

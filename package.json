@@ -13,7 +13,7 @@
     "affected:lint": "nx affected:lint",
     "affected:test": "nx affected:test",
     "affected": "nx affected",
-    "build": "ng build",
+    "build": "ng build --base-href=/ng-guitar/",
     "dep-graph": "nx dep-graph",
     "e2e": "ng e2e",
     "format:check": "nx format:check",
