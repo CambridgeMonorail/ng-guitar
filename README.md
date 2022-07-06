@@ -64,6 +64,16 @@ npm run test
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
 
+## Roadmap
+
+- [ ] feature: Accurate Typescript Metronome Component
+- [ ] feature: SVG based metronome visulisation component
+- [ ] chore: add semver
+- [ ] feature: demo theming and theme switching
+- [ ] feature: getting started page for consumers
+- [ ] feature: demo about, version and dependency display
+- [ ] feature: fretboard / chord pattern visaulization component
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
@@ -71,7 +81,7 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2022 [T.D.Morris](https://github.com/TimDMorris).<br />
-This project is [MIT](http://localhost:4200) licensed.
+This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.md) licensed.
 
 ---
 
