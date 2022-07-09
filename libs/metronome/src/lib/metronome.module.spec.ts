@@ -1,10 +1,11 @@
 import { async, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MetronomeModule } from './metronome.module';
 
 describe('MetronomeModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MetronomeModule],
+      imports: [MetronomeModule, ReactiveFormsModule],
     }).compileComponents();
   }));
 

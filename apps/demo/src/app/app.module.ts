@@ -14,6 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { DrawerRailModule } from 'angular-material-rail-drawer';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MetronomeModule } from '@ng-guitar/metronome';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ShellComponent],
@@ -23,6 +25,7 @@ import { MetronomeModule } from '@ng-guitar/metronome';
     BrowserModule,
     DrawerRailModule,
     FlexLayoutModule,
+    HttpClientModule,
     LayoutModule,
     MatButtonModule,
     MatIconModule,
@@ -30,6 +33,7 @@ import { MetronomeModule } from '@ng-guitar/metronome';
     MatSidenavModule,
     MatToolbarModule,
     MetronomeModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

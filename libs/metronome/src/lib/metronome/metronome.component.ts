@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
 import { MetronomeFormModel } from '../models/mentronome-form.type';
+
 import { TForm } from '../models/tForm.type';
 
 @Component({
