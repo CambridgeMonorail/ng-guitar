@@ -68,6 +68,7 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 - [ ] feature: Accurate Typescript Metronome Component
 - [ ] feature: SVG based metronome visulisation component
+- [ ] ci: refactor ci pipeline to only build affected
 - [ ] chore: add semver
 - [ ] feature: demo theming and theme switching
 - [ ] feature: getting started page for consumers
