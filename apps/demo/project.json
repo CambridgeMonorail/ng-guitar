@@ -15,7 +15,8 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/demo/src/favicon.ico", "apps/demo/src/assets"],
         "styles": ["apps/demo/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "webWorkerTsConfig": "apps/demo/tsconfig.worker.json"
       },
       "configurations": {
         "production": {
@@ -79,7 +80,8 @@
       "outputs": ["coverage/apps/demo"],
       "options": {
         "jestConfig": "apps/demo/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "webWorkerTsConfig": "apps/demo/tsconfig.worker.json"
       }
     }
   },

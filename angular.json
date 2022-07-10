@@ -4,7 +4,6 @@
   "projects": {
     "demo": "apps/demo",
     "demo-e2e": "apps/demo-e2e",
-    "metronome": "libs/metronome",
     "shared-ui": "libs/shared/ui"
   }
 }
