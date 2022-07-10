@@ -1,0 +1,53 @@
+<section class="metronome-wrapper" fxLayout="column">
+  <h3>Metronome</h3>
+  <br />
+  <span *ngIf="this.isSupported">Yeah, your browser is supported.</span>
+  <br />
+  <button (click)="beep()">beep</button>
+  <br />
+  <span>Tick Count: {{ tickCount }}</span>
+  <br />
+  <span>Worker Message: {{ workerMessage }}</span>
+  <br />
+  <span
+    class="metronome-parameters"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutGap="20px"
+  >
+    <mat-form-field>
+      <mat-label>Tempo: </mat-label>
+      <input matInput placeholder="60" value="60" />
+    </mat-form-field>
+
+    <!-- <label for="first-name">Tempo: </label>
+    <input id="tempo" type="number" /> -->
+
+    <!-- <label for="last-name">Sound: </label>
+    <input id="sound" type="text" formControlName="sound" /> -->
+
+    <!-- <label for="last-name">Visualization: </label>
+    <input id="visualization" type="text" formControlName="visualization" /> -->
+
+    <mat-form-field>
+      <mat-label>Resolution: </mat-label>
+      <mat-select
+        appearance="fill"
+        [(value)]="noteResolution"
+        (selectionchange)="changeResolution($event)"
+      >
+        <mat-option *ngFor="let item of noteResolutions" [value]="item.id">
+          {{ item.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button (click)="changeMetronomeState()">
+      {{ isPlaying === true ? 'Stop' : 'Start' }}
+    </button>
+  </span>
+
+  <div fxLayout="column">
+    <h4>debug:</h4>
+  </div>
+</section>
