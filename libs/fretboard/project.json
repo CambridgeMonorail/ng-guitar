@@ -1,0 +1,41 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/fretboard/src",
+  "prefix": "ng-guitar",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/fretboard"],
+      "options": {
+        "project": "libs/fretboard/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/fretboard/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/fretboard/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/fretboard"],
+      "options": {
+        "jestConfig": "libs/fretboard/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/fretboard/**/*.ts",
+          "libs/fretboard/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["ui"]
+}

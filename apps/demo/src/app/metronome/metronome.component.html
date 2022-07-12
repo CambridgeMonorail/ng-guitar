@@ -1,23 +1,43 @@
 <section class="metronome-wrapper" fxLayout="column">
-  <h3>Metronome</h3>
+  <h3>
+    Metronome Setup -
+    <span *ngIf="this.isSupported"
+      ><em>Yeah, your browser is supported.</em></span
+    >
+  </h3>
+
   <br />
-  <span *ngIf="this.isSupported">Yeah, your browser is supported.</span>
-  <br />
-  <button (click)="beep()">beep</button>
-  <br />
-  <span>Tick Count: {{ tickCount }}</span>
-  <br />
-  <span>Worker Message: {{ workerMessage }}</span>
-  <br />
+
   <span
     class="metronome-parameters"
     fxLayout="row"
     fxLayoutAlign="start center"
-    fxLayoutGap="20px"
+    fxLayoutGap="1.5rem"
   >
-    <mat-form-field>
+    <section
+      class="tempo"
+      fxLayout="row"
+      fxLayoutAlign="space-around center"
+      fxLayoutGap="0.5rem"
+    >
+      <span class="mat-caption">60</span>
+      <mat-slider
+        class="tempo-slider"
+        thumbLabel
+        tickInterval="1"
+        step="1"
+        min="60"
+        max="240"
+        aria-label="units"
+        [(ngModel)]="tickCount"
+      ></mat-slider>
+      <span class="mat-caption">240</span>
+    </section>
+
+    <mat-form-field class="tempo-number">
       <mat-label>Tempo: </mat-label>
-      <input matInput placeholder="60" value="60" />
+      <input matInput placeholder="60" [value]="tickCount" />
+      <span matSuffix>bpm</span>
     </mat-form-field>
 
     <!-- <label for="first-name">Tempo: </label>
@@ -34,7 +54,7 @@
       <mat-select
         appearance="fill"
         [(value)]="noteResolution"
-        (selectionchange)="changeResolution($event)"
+        (valueChange)="changeResolution($event)"
       >
         <mat-option *ngFor="let item of noteResolutions" [value]="item.id">
           {{ item.name }}
@@ -48,6 +68,12 @@
   </span>
 
   <div fxLayout="column">
-    <h4>debug:</h4>
+    <section class="debug-stuff">
+      <h4>Debug Stuff</h4>
+      <span>Tick Count: {{ tickCount }}</span>
+      <br />
+      <span>Worker Message: {{ workerMessage }}</span>
+      <br />
+    </section>
   </div>
 </section>

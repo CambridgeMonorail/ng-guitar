@@ -2,7 +2,7 @@
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let timerID: any;
-let interval = 5000;
+let interval = 500;
 
 addEventListener('message', ({ data }) => {
   if (data == 'start') {

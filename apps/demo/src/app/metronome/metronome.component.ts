@@ -4,6 +4,7 @@ import { isSupported } from 'angular-audio-context';
 import { NoteResolution } from './../models/note-resolution.interface';
 import { QueuedNote } from './../models/queued-note.interface';
 import { AudioContext } from 'angular-audio-context';
+import { IAudioContext, IOscillatorNode } from 'standardized-audio-context';
 
 @Component({
   selector: 'ng-guitar-metronome',
@@ -15,7 +16,7 @@ export class MetronomeComponent {
   timerWorker!: Worker;
   workerMessage = '';
 
-  tickCount = 0;
+  tickCount = 60;
   unlocked = false;
 
   current16thNote = 0; // What note is currently last scheduled?
@@ -34,10 +35,8 @@ export class MetronomeComponent {
     this.play();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-  changeResolution(event: any) {
-    console.log(event);
-    this.noteResolution = event.target.value;
+  changeResolution(value: number) {
+    this.noteResolution = value;
   }
 
   constructor(
@@ -47,34 +46,17 @@ export class MetronomeComponent {
     this.noteResolutions = this.getNoteResolutions();
 
     if (typeof Worker !== 'undefined') {
-      // Create a new
+      console.log('Web Workers are supported!');
       this.timerWorker = new Worker(
         new URL('../metrenome.worker.ts', import.meta.url)
       );
 
       this.timerWorker.onmessage = this.timerOnMessageCallcack.bind(this);
-
       this.timerWorker.postMessage({ interval: this.lookahead });
     } else {
       // Web workers are not supported in this environment.
       // You should add a fallback so that your program still executes correctly.
     }
-  }
-
-  public async beep(): Promise<void> {
-    console.log('beep');
-    if (this.audioContext.state === 'suspended') {
-      console.log('suspended');
-      await this.audioContext.resume();
-    }
-
-    const oscillatorNode = this.audioContext.createOscillator();
-
-    oscillatorNode.onended = () => oscillatorNode.disconnect();
-    oscillatorNode.connect(this.audioContext.destination);
-
-    oscillatorNode.start();
-    oscillatorNode.stop(this.audioContext.currentTime + 0.5);
   }
 
   getNoteResolutions(): NoteResolution[] {
@@ -86,11 +68,8 @@ export class MetronomeComponent {
   }
 
   timerOnMessageCallcack(e: MessageEvent) {
-    console.log('timerOnMessageCallcack');
-    console.log(e);
-
+    this.workerMessage = e.data;
     if (e.data == 'tick') {
-      console.log('tick!');
       this.tickCount = +1;
       this.scheduler.call(this);
     } else {
@@ -121,8 +100,21 @@ export class MetronomeComponent {
     if (this.noteResolution == 2 && beatNumber % 4) return; // we're not playing non-quarter 8th notes
 
     // create an oscillator
-    const osc = this.audioContext.createOscillator();
-    osc.connect(this.audioContext.destination);
+    this.createSound(beatNumber, time);
+  }
+
+  private createSound(beatNumber: number, time: number) {
+    const osc = this.createOscillator();
+    this.setOscillatorFrequency(beatNumber, osc);
+
+    osc.start(time);
+    osc.stop(time + this.noteLength);
+  }
+
+  private setOscillatorFrequency(
+    beatNumber: number,
+    osc: IOscillatorNode<IAudioContext>
+  ) {
     if (beatNumber % 16 === 0)
       // beat 0 == high pitch
       osc.frequency.value = 880.0;
@@ -131,9 +123,12 @@ export class MetronomeComponent {
       osc.frequency.value = 440.0;
     // other 16th notes = low pitch
     else osc.frequency.value = 220.0;
+  }
 
-    osc.start(time);
-    osc.stop(time + this.noteLength);
+  private createOscillator(): IOscillatorNode<IAudioContext> {
+    const osc = this.audioContext.createOscillator();
+    osc.connect(this.audioContext.destination);
+    return osc;
   }
 
   nextNote(): void {
@@ -150,27 +145,57 @@ export class MetronomeComponent {
     }
   }
 
-  play() {
-    if (!this.unlocked) {
-      // play silent buffer to unlock the audio
-      const buffer = this.audioContext.createBuffer(1, 1, 22050);
-      const node = this.audioContext.createBufferSource();
-      node.buffer = buffer;
-      node.start(0);
+  public async beep(): Promise<void> {
+    console.log('beep');
+    if (this.audioContext.state === 'suspended') {
+      console.log('suspended');
+      await this.audioContext.resume();
+    }
+
+    const oscillatorNode = this.audioContext.createOscillator();
+
+    oscillatorNode.onended = () => oscillatorNode.disconnect();
+    oscillatorNode.connect(this.audioContext.destination);
+
+    oscillatorNode.start();
+    oscillatorNode.stop(this.audioContext.currentTime + 0.5);
+  }
+
+  public async unlock(): Promise<void> {
+    const _scratchBuffer = this.audioContext.createBuffer(1, 1, 22050);
+    const source = this.audioContext.createBufferSource();
+    source.buffer = _scratchBuffer;
+    source.connect(this.audioContext.destination);
+    source.start(0);
+
+    if (typeof this.audioContext.resume === 'function') {
+      this.audioContext.resume();
+    }
+
+    source.onended = () => {
+      source.disconnect(0);
       this.unlocked = true;
-    }
+    };
+  }
 
-    this.isPlaying = !this.isPlaying;
+  play() {
+    // show loader
+    this.unlock().then(() => {
+      console.log('unlock');
+      //hide loader
 
-    if (this.isPlaying) {
-      // start playing
-      this.current16thNote = 0;
-      this.nextNoteTime = this.audioContext.currentTime;
-      this.timerWorker.postMessage('start');
-      return 'stop';
-    } else {
-      this.timerWorker.postMessage('stop');
-      return 'play';
-    }
+      this.isPlaying = !this.isPlaying;
+
+      if (this.isPlaying) {
+        // start playing
+        this.current16thNote = 0;
+        this.nextNoteTime = this.audioContext.currentTime;
+        this.timerWorker.postMessage('start');
+        return 'stop';
+      } else {
+        this.timerWorker.postMessage('stop');
+        return 'play';
+      }
+    });
   }
 }
