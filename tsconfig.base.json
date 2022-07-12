@@ -17,6 +17,7 @@
     "sourceMap": true,
     "target": "es2020",
     "paths": {
+      "@ng-guitar/fretboard": ["libs/fretboard/src/index.ts"],
       "@ng-guitar/shared-ui": ["libs/shared/ui/src/index.ts"]
     }
   },

@@ -1,3 +1,4 @@
+import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -28,6 +29,7 @@ import { AudioContextModule } from 'angular-audio-context';
     BrowserModule,
     DrawerRailModule,
     FlexLayoutModule,
+    FormsModule,
     HttpClientModule,
     LayoutModule,
     MatButtonModule,
@@ -36,8 +38,8 @@ import { AudioContextModule } from 'angular-audio-context';
     MatListModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSliderModule,
     MatToolbarModule,
-    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [],
