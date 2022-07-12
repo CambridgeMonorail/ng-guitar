@@ -1,1 +1,0 @@
-(()=>{let e,t=5e3;addEventListener("message",({data:l})=>{"start"==l?(console.log("starting"),e=setInterval(function(){postMessage("tick")},t)):l.interval?(console.log("setting interval"),t=l.interval,console.log("interval="+t),e&&(clearInterval(e),e=setInterval(function(){postMessage("tick")},t))):"stop"==l&&(console.log("stopping"),clearInterval(e),e=null)})})();
