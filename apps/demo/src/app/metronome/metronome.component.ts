@@ -16,7 +16,7 @@ export class MetronomeComponent {
   timerWorker!: Worker;
   workerMessage = '';
 
-  tickCount = 60;
+  tickCount = 0;
   unlocked = false;
 
   current16thNote = 0; // What note is currently last scheduled?
@@ -27,7 +27,7 @@ export class MetronomeComponent {
   noteResolution = 2; // 0 == 16th, 1 == 8th, 2 == quarter note
   notesInQueue: QueuedNote[] = []; // the notes that have been put into the web audio, and may or may not have played yet. {note, time}
   scheduleAheadTime = 0.1; // How far ahead to schedule audio (sec)
-  tempo = 60.0; // tempo (in beats per minute)
+  tempo = 60; // tempo (in beats per minute)
   noteResolutions: NoteResolution[] = [];
 
   changeMetronomeState() {

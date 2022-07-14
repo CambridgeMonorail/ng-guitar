@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+table {
+  // border: 1px solid #b3adad;
+  border-collapse: collapse;
+  padding: 5px;
+  width: 100%;
+}
+table th {
+  // border: 1px solid #b3adad;
+  padding: 5px;
+  // background: #f0f0f0;
+  // color: #313030;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table tfoot {
+  // border: 1px solid #b3adad;
+  padding: 5px;
+  // background: #f0f0f0;
+  // color: #313030;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td {
+  border: 1px solid #b3adad;
+  text-align: center;
+  padding: 5px;
+  background: #533e04;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td.nut {
+  border-right: 10px solid white;
+  text-align: center;
+  padding: 5px;
+  background: black;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td .fret {
+  border: 1px solid #b3adad;
+  text-align: center;
+  padding: 5px;
+  background: #533e04;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table td.fret-marker {
+  padding: 5px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// table td {
+// 	border:1px solid #b3adad;
+// 	text-align:center;
+// 	padding:5px;
+// 	background: #533e04;
+// 	color: #313030;
+// }
+
+.note-circle {
+  background: #ff0000;
+  color: #fff;
+  padding: 2.5px 10px;
+  border-radius: 50%;
+  font-size: 17.5px;
+}

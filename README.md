@@ -62,18 +62,24 @@ npm run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
+Contributions, issues and feat requests are welcome!<br />Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
 
 ## Roadmap
 
-- [ ] feature: Accurate Typescript Metronome Component
-- [ ] feature: SVG based metronome visulisation component
+- [x] feat: Accurate Typescript Metronome Component
+- [ ] feat: SVG based metronome visulisation component
 - [ ] ci: refactor ci pipeline to only build affected
 - [ ] chore: add semver
-- [ ] feature: demo theming and theme switching
-- [ ] feature: getting started page for consumers
-- [ ] feature: demo about, version and dependency display
-- [ ] feature: fretboard / chord pattern visaulization component
+- [ ] feat: demo theming and theme switching
+- [ ] feat: getting started page for consumers
+- [ ] feat: demo about, version and dependency display
+- [ ] feat: fretboard / chord pattern visaulization component
+- [ ] metronome speed trainer i.e. define min max range, incrementally accellerate
+
+## Bugs / Refactor
+
+- [x] fix: ~~bind tempo to tempo not tickcount~~
+- [ ] fix: ~~svg header/footer background path when publishing to subdirectory~~
 
 ## Show your support
 

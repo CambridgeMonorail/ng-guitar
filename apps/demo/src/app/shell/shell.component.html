@@ -31,27 +31,31 @@
       (openedChange)="openedChange(appDrawer.opened)"
     >
       <mat-nav-list class="dashboard">
-        <a mat-list-item>
+        <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>account_circle</mat-icon>
-          <p matLine>Name</p>
+          <p matLine>Progress</p>
         </a>
         <mat-divider></mat-divider>
 
-        <a mat-list-item>
+        <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>inbox</mat-icon>
-          <p matLine>Inbox</p>
+          <p matLine>Setting</p>
         </a>
-        <a mat-list-item>
+        <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>star</mat-icon>
-          <p matLine>Starred</p>
+          <p matLine>Help</p>
         </a>
-        <a mat-list-item>
+        <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>drafts</mat-icon>
-          <p matLine>Drafts</p>
+          <p matLine>About</p>
         </a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content fxLayout="column" fxLayoutAlign="start stretch">
+    <mat-sidenav-content
+      fxLayout="column"
+      fxLayoutAlign="start stretch"
+      fxLayoutGap="2rem"
+    >
       <section style="padding: 10px">
         <h1>NG.Guitar</h1>
         <div style="margin: 20px">
@@ -60,6 +64,16 @@
           where I'm going to awkwardly glue both together.
         </div>
       </section>
+      <section>
+        <h2>Fretboard:</h2>
+        <ng-guitar-fretboard> </ng-guitar-fretboard>
+      </section>
+
+      <section>
+        <h2>Etude:</h2>
+        <ng-guitar-etude> </ng-guitar-etude>
+      </section>
+
       <section style="padding: 10px">
         <ng-guitar-metronome></ng-guitar-metronome>
       </section>
@@ -68,8 +82,8 @@
   <mat-toolbar
     color="primary"
     fxFlex="nogrow"
-    style="background-image: url('/assets/images/grid.svg')"
     fxLayoutAlign="space-between center"
+    style="background-image: url('assets/images/grid.svg')"
   >
     <section>Copyright © 2022 T.D.Morris.</section>
     <section>right</section>
