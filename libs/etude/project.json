@@ -1,0 +1,38 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/etude/src",
+  "prefix": "ng-guitar",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/etude"],
+      "options": {
+        "project": "libs/etude/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/etude/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/etude/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/etude"],
+      "options": {
+        "jestConfig": "libs/etude/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/etude/**/*.ts", "libs/etude/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

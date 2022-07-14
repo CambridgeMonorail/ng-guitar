@@ -29,14 +29,14 @@
         min="60"
         max="240"
         aria-label="units"
-        [(ngModel)]="tickCount"
+        [(ngModel)]="tempo"
       ></mat-slider>
       <span class="mat-caption">240</span>
     </section>
 
     <mat-form-field class="tempo-number">
       <mat-label>Tempo: </mat-label>
-      <input matInput placeholder="60" [value]="tickCount" />
+      <input matInput placeholder="60" [value]="tempo" />
       <span matSuffix>bpm</span>
     </mat-form-field>
 
