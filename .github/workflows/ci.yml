@@ -18,6 +18,7 @@ jobs:
     name: build-and-deploy
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    if: "startsWith(github.event.head_commit.message, '[RELEASE]')"
 
     steps:
       - name: Checkout 🛎️

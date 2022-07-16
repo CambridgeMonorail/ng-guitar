@@ -1,5 +1,16 @@
 <h1 align="center">Welcome to ng-guitar 👋</h1>
+
+Guitar Related Components for Angular
+
+<div>
 <p>
+<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
+</p>
+</div>
+<p>
+  <a href="https://github.com/tophat/getting-started/blob/master/scorecard.md" target="_blank">
+    <img alt="Project Maturity" src="https://img.shields.io/badge/Maturity-Level%201%20--%20New%20Project-yellow.svg" />
+  </a>
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="http://localhost:4200" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -14,7 +25,9 @@
 
 <p>
 
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/timdmorris/ng-guitar)
 [![CI Status](https://github.com/TimDMorris/ng-guitar/workflows/build-and-deploy/badge.svg)](https://github.com/TimDMorris/ng-guitar/actions)
+[![CodeQL](https://github.com/TimDMorris/ng-guitar/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/TimDMorris/ng-guitar/actions/workflows/codeql-analysis.yml)
 
 </p>
 
@@ -25,18 +38,13 @@
     <a href="https://www.typescriptlang.org/" target="_blank">
     <img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
   </a>
+
 </p>
-
-> Guitar Related Components for Angular - Work In Progress
-
-### 🏠 [Homepage](https://timdmorris.github.io/ng-guitar/)
-
-### ✨ [Demo](https://timdmorris.github.io/ng-guitar/)
 
 ## Install
 
 ```sh
-npm install
+npm install --legacy-peer-deps
 ```
 
 ## Usage
@@ -51,14 +59,9 @@ npm run start
 npm run test
 ```
 
-## Author
+## Committing
 
-👤 **TimDMorris**
-
-- Website: <https://timdmorris.github.io/ng-guitar/>
-- Twitter: [@TimDMorris](https://twitter.com/TimDMorris)
-- Github: [@TimDMorris](https://github.com/TimDMorris)
-- LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
+See [Commit Rules](docs dev-docs/commit-rules.md)
 
 ## 🤝 Contributing
 
@@ -80,7 +83,8 @@ It would great as a future enhancement if note recognition could be integrated s
 
 - [x] feat: ~~Accurate Typescript Metronome Component~~
 - [x] chore: ~~setup dependabot~~
-- [ ] chore: add <https://github.com/DavidWells/markdown-magic/>
+- [x] ci: ~~add commitlint to enforce conventioanl commits~~
+- [ ] ci: add <https://github.com/DavidWells/markdown-magic/>
 - [ ] feat: SVG based metronome visulisation component
 - [ ] ci: refactor ci pipeline to only build affected
 - [ ] chore: add semver and changelog generation
@@ -98,6 +102,8 @@ It would great as a future enhancement if note recognition could be integrated s
 - [x] fix: ~~bind tempo to tempo not tickcount~~
 - [ ] fix: ~~svg header/footer background path when publishing to subdirectory~~
 
+---
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
@@ -108,5 +114,14 @@ Copyright © 2022 [T.D.Morris](https://github.com/TimDMorris).<br />
 This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.md) licensed.
 
 ---
+
+## Author
+
+👤 **TimDMorris**
+
+- Website: <https://timdmorris.github.io/ng-guitar/>
+- Twitter: [@TimDMorris](https://twitter.com/TimDMorris)
+- Github: [@TimDMorris](https://github.com/TimDMorris)
+- LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
