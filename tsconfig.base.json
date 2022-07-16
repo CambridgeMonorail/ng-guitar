@@ -19,7 +19,8 @@
     "paths": {
       "@ng-guitar/etude": ["libs/etude/src/index.ts"],
       "@ng-guitar/fretboard": ["libs/fretboard/src/index.ts"],
-      "@ng-guitar/shared-ui": ["libs/shared/ui/src/index.ts"]
+      "@ng-guitar/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@ng-guitar/tab-scroller": ["libs/tab-scroller/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

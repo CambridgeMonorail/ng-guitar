@@ -3,13 +3,13 @@
 }
 
 table {
-  // border: 1px solid #b3adad;
+  // border: 1px solid #121629;
   border-collapse: collapse;
   padding: 5px;
   width: 100%;
 }
 table th {
-  // border: 1px solid #b3adad;
+  // border: 1px solid #121629;
   padding: 5px;
   // background: #f0f0f0;
   // color: #313030;
@@ -18,7 +18,7 @@ table th {
 }
 
 table tfoot {
-  // border: 1px solid #b3adad;
+  // border: 1px solid #121629;
   padding: 5px;
   // background: #f0f0f0;
   // color: #313030;
@@ -27,11 +27,12 @@ table tfoot {
 }
 
 table td {
-  border: 1px solid #b3adad;
-  text-align: center;
-  padding: 5px;
-  background: #533e04;
+  background: #b8c1ec;
+  border: 1px solid #121629;
   color: white;
+  height: 35px;
+  padding: 5px;
+  text-align: center;
   text-align: center;
   vertical-align: middle;
 }
@@ -47,11 +48,12 @@ table td.nut {
 }
 
 table td .fret {
-  border: 1px solid #b3adad;
-  text-align: center;
-  padding: 5px;
-  background: #533e04;
+  background: #b8c1ec;
+  border: 1px solid #121629;
   color: white;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
   text-align: center;
   vertical-align: middle;
 }
@@ -63,18 +65,12 @@ table td.fret-marker {
   vertical-align: middle;
 }
 
-// table td {
-// 	border:1px solid #b3adad;
-// 	text-align:center;
-// 	padding:5px;
-// 	background: #533e04;
-// 	color: #313030;
-// }
-
 .note-circle {
-  background: #ff0000;
-  color: #fff;
+  background: #fffffe;
+  color: #121629;
   padding: 2.5px 10px;
   border-radius: 50%;
+  margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 17.5px;
 }

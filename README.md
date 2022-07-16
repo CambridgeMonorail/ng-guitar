@@ -62,11 +62,20 @@ npm run test
 
 ## 🤝 Contributing
 
-Contributions, issues and feat requests are welcome!<br />Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
+Contributions, issues and feat requests are welcome!
+
+Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
+
+## Vision
+
+I find it difficult to keep focus when practicing the guitar scales and patterns that make up the foundations of improvisation. I seem to be switching between tinkering with the metronome, refering to reference materials for wahtever I'm learning to practice. trying to track how long I've been practicing any one thing and my overall progress so I know what weak spots to focus on.
+
+This seems like a good candidate for an app, in fact I can think of a few different guitar based apps that don't seem to currently exist
 
 ## Roadmap
 
 - [x] feat: Accurate Typescript Metronome Component
+- [ ] chore: add <https://github.com/DavidWells/markdown-magic/>
 - [ ] feat: SVG based metronome visulisation component
 - [ ] ci: refactor ci pipeline to only build affected
 - [ ] chore: add semver
@@ -74,7 +83,10 @@ Contributions, issues and feat requests are welcome!<br />Feel free to check [is
 - [ ] feat: getting started page for consumers
 - [ ] feat: demo about, version and dependency display
 - [ ] feat: fretboard / chord pattern visaulization component
-- [ ] metronome speed trainer i.e. define min max range, incrementally accellerate
+- [ ] feat: metronome speed trainer i.e. define min max range, incrementally accellerate
+- [ ] feat: experimental in browser ML note recognition
+- [ ] feat: simple animated tab scroller
+- [ ] feat: practice pattern generator
 
 ## Bugs / Refactor
 
