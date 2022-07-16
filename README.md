@@ -68,17 +68,22 @@ Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues)
 
 ## Vision
 
-I find it difficult to keep focus when practicing the guitar scales and patterns that make up the foundations of improvisation. I seem to be switching between tinkering with the metronome, refering to reference materials for wahtever I'm learning to practice. trying to track how long I've been practicing any one thing and my overall progress so I know what weak spots to focus on.
+I find it difficult to keep focus when practicing the guitar scales and patterns that make up the foundations of improvisation. I seem to be switching between tinkering with the metronome, referring to reference materials for whatever I'm learning to practice. trying to track how long I've been practicing any one thing and my overall progress, so I know what weak spots to focus on.
+This seems like a good candidate for an app, in fact I can think of a few different guitar-based apps that don't seem to currently exist, so the plan here is to build the elements of this as re-usable components and then later make those components available as packages.
 
-This seems like a good candidate for an app, in fact I can think of a few different guitar based apps that don't seem to currently exist
+The aim is that the initial app will provide a metronome that can be configured to accelerate to help speed training. This will have a scrolling tab display linked to it which will suggest patterns to practice. These patterns will evolve in complexity over time. The app should track how long you have been practicing and suggest regular breaks to avoid repetitive strain injuries.
+The app should take advantage of what psychological research about learning shows us and feature on one pattern to learn, switch to another then switch back to re-enforce the learning of the patterns.
+
+It would great as a future enhancement if note recognition could be integrated so the application can give feedback and give better automatic control of progression through increasingly complex exercises.
 
 ## Roadmap
 
-- [x] feat: Accurate Typescript Metronome Component
+- [x] feat: ~~Accurate Typescript Metronome Component~~
+- [x] chore: ~~setup dependabot~~
 - [ ] chore: add <https://github.com/DavidWells/markdown-magic/>
 - [ ] feat: SVG based metronome visulisation component
 - [ ] ci: refactor ci pipeline to only build affected
-- [ ] chore: add semver
+- [ ] chore: add semver and changelog generation
 - [ ] feat: demo theming and theme switching
 - [ ] feat: getting started page for consumers
 - [ ] feat: demo about, version and dependency display
