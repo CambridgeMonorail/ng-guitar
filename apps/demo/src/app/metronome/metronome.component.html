@@ -30,6 +30,7 @@
         max="240"
         aria-label="units"
         [(ngModel)]="tempo"
+        aria-labelledby="metronome tempo value"
       ></mat-slider>
       <span class="mat-caption">240</span>
     </section>
@@ -62,7 +63,7 @@
       </mat-select>
     </mat-form-field>
 
-    <button (click)="changeMetronomeState()">
+    <button mat-raised-button color="primary" (click)="changeMetronomeState()">
       {{ isPlaying === true ? 'Stop' : 'Start' }}
     </button>
   </span>
