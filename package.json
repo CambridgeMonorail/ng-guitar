@@ -31,7 +31,8 @@
     "update:check": "ng update",
     "update": "ng update @nrwl/workspace",
     "watch": "ng build --watch --configuration development",
-    "workspace-schematic": "nx workspace-schematic"
+    "workspace-schematic": "nx workspace-schematic",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -63,6 +64,7 @@
     "@angular/compiler-cli": "~14.0.0",
     "@angular/language-service": "~14.0.0",
     "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-angular": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@jscutlery/semver": "^2.25.2",
     "@nrwl/cli": "14.3.6",
@@ -79,7 +81,7 @@
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "jest": "27.5.1",
     "jest-preset-angular": "~11.1.2",
     "lint-staged": "^13.0.3",
