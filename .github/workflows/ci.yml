@@ -41,6 +41,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - run: npx semantic-release
+      - name: Release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
