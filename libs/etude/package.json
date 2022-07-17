@@ -1,6 +1,7 @@
 {
   "name": "@ng-guitar/etude",
   "version": "0.0.1",
+  "private": true,
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0"
