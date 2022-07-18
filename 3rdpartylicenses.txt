@@ -96,6 +96,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @ng-guitar/fretboard
 
+@ng-guitar/tab-scroller
+
 angular-audio-context
 MIT
 MIT License
