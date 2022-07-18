@@ -15,6 +15,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EtudeModule } from '@ng-guitar/etude';
 import { FretboardModule } from '@ng-guitar/fretboard';
+import { TabScrollerModule } from '@ng-guitar/tab-scroller';
 import { AudioContextModule } from 'angular-audio-context';
 import { DrawerRailModule } from 'angular-material-rail-drawer';
 
@@ -32,8 +33,8 @@ import { ShellComponent } from './shell/shell.component';
     DrawerRailModule,
     EtudeModule,
     FlexLayoutModule,
-    FretboardModule,
     FormsModule,
+    FretboardModule,
     HttpClientModule,
     LayoutModule,
     MatButtonModule,
@@ -45,6 +46,7 @@ import { ShellComponent } from './shell/shell.component';
     MatSliderModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    TabScrollerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
