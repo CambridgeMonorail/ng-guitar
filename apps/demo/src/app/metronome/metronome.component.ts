@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Output,
+} from '@angular/core';
 import { isSupported } from 'angular-audio-context';
 
 import { NoteResolution } from './../models/note-resolution.interface';
@@ -29,6 +35,9 @@ export class MetronomeComponent {
   scheduleAheadTime = 0.1; // How far ahead to schedule audio (sec)
   tempo = 60; // tempo (in beats per minute)
   noteResolutions: NoteResolution[] = [];
+
+  @Output() running = new EventEmitter();
+  @Output() tick = new EventEmitter();
 
   changeMetronomeState() {
     // TODO: Use EventEmitter with form value
@@ -70,7 +79,7 @@ export class MetronomeComponent {
   timerOnMessageCallcack(e: MessageEvent) {
     this.workerMessage = e.data;
     if (e.data == 'tick') {
-      this.tickCount = +1;
+      this.tickCount += 1;
       this.scheduler.call(this);
     } else {
       console.log('message: ' + e.data);
@@ -84,6 +93,7 @@ export class MetronomeComponent {
       this.nextNoteTime <
       this.audioContext.currentTime + this.scheduleAheadTime
     ) {
+      this.tick.emit(this.tickCount);
       this.scheduleNote(this.current16thNote, this.nextNoteTime);
       this.nextNote();
     }
@@ -179,15 +189,15 @@ export class MetronomeComponent {
   }
 
   play() {
-    // show loader
+    // TODO: show loader
     this.unlock().then(() => {
       console.log('unlock');
-      //hide loader
+      // TODO:hide loader
 
       this.isPlaying = !this.isPlaying;
+      this.running.emit(this.isPlaying);
 
       if (this.isPlaying) {
-        // start playing
         this.current16thNote = 0;
         this.nextNoteTime = this.audioContext.currentTime;
         this.timerWorker.postMessage('start');

@@ -66,12 +66,20 @@
       </section>
 
       <section>
-        <h2>Etude:</h2>
-        <ng-guitar-etude> </ng-guitar-etude>
+        <h2>Etude: Tick Count {{ tickCount }}</h2>
+        <!-- <ng-guitar-etude> </ng-guitar-etude> -->
+        <ng-guitar-tab-scroller
+          [running]="running"
+          [tick]="tickCount"
+        ></ng-guitar-tab-scroller>
       </section>
 
       <section style="padding: 10px">
-        <ng-guitar-metronome></ng-guitar-metronome>
+        <div>Runng: {{ running }}</div>
+        <ng-guitar-metronome
+          (running)="metronomeStateChanged($event)"
+          (tick)="ticked($event)"
+        ></ng-guitar-metronome>
       </section>
     </mat-sidenav-content>
   </mat-sidenav-container>
@@ -81,6 +89,6 @@
     fxLayoutAlign="space-between center"
   >
     <section>Copyright © 2022 T.D.Morris.</section>
-    <section>right</section>
+    <section>v{{ version }}</section>
   </mat-toolbar>
 </div>
