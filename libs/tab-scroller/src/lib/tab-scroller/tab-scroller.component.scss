@@ -4,9 +4,35 @@
   // width: inherit;
 }
 
-canvas {
+.tab-scroller-wrapper {
+  // height: fit-content;
+  // width: fit-content;
+  // display: inline-block;
+  position: relative;
+}
+
+.background-canvas {
   background-color: #b8c1ec;
   color: #121629;
   height: 250px;
+  left: 0;
+  position: absolute;
+  top: 0;
   width: 100%;
+}
+
+.main-canvas {
+  height: 250px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-canvas {
+  background-color: #b8c1ec;
+  height: 250px;
+  left: 0;
+  position: absolute;
+  top: 0;
 }

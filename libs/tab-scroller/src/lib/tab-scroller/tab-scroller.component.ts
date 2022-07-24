@@ -20,9 +20,19 @@ import {
   styleUrls: ['./tab-scroller.component.scss'],
 })
 export class TabScrollerComponent implements AfterViewInit {
-  @ViewChild('canvas', { static: false })
-  private canvas!: ElementRef<HTMLCanvasElement>;
-  private ctx!: CanvasRenderingContext2D;
+  @ViewChild('backgroundCanvas', { static: false })
+  private backgroundCanvas!: ElementRef<HTMLCanvasElement>;
+
+  @ViewChild('mainCanvas', { static: false })
+  private mainCanvas!: ElementRef<HTMLCanvasElement>;
+
+  @ViewChild('overlayCanvas', { static: false })
+  private overlayCanvas!: ElementRef<HTMLCanvasElement>;
+
+  private backgroundContext!: CanvasRenderingContext2D;
+  private mainContext!: CanvasRenderingContext2D;
+  private overlayContext!: CanvasRenderingContext2D;
+
   private id = 0;
   private noteArray: FrettedNote[] = [];
   private isRunning = false;
@@ -42,6 +52,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private noteWidth = 0;
 
   private stringTuning: StringTunings | undefined;
+  private strings: Strings | undefined;
   private noteMovementPerMillisecond = 1;
 
   /**
@@ -74,13 +85,7 @@ export class TabScrollerComponent implements AfterViewInit {
   constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
-    if (this.canvas && this.canvas instanceof ElementRef) {
-      this.ctx = <CanvasRenderingContext2D>(
-        this.canvas.nativeElement.getContext('2d')
-      );
-      this.ngZone.runOutsideAngular(() => this.click());
-      this.ctx.fillStyle = 'aqua';
-    }
+    this.gaetCanvesesContexts();
 
     this.width = window.innerWidth;
     this.height = this.getHeight();
@@ -90,6 +95,61 @@ export class TabScrollerComponent implements AfterViewInit {
     this.setCanvasSize();
     this.getVelocity();
     this.getPixelsPerMillisecond();
+
+    this.setupTunings();
+
+    this.setupStrings();
+  }
+
+  private setupStrings() {
+    this.strings = new Strings(
+      this.backgroundContext,
+      this.tuning.length,
+      this.noteHeight,
+      this.width,
+      this.height
+    );
+
+    if (this.strings) {
+      this.strings.draw();
+    }
+  }
+
+  private setupTunings() {
+    this.stringTuning = new StringTunings(
+      this.overlayContext,
+      this.tuning,
+      this.noteHeight
+    );
+
+    if (this.stringTuning) {
+      this.stringTuning.draw();
+    }
+  }
+
+  private gaetCanvesesContexts() {
+    if (this.backgroundCanvas && this.backgroundCanvas instanceof ElementRef) {
+      this.backgroundContext = <CanvasRenderingContext2D>(
+        this.backgroundCanvas.nativeElement.getContext('2d')
+      );
+
+      this.backgroundContext.fillStyle = 'aqua';
+    }
+
+    if (this.mainCanvas && this.mainCanvas instanceof ElementRef) {
+      this.mainContext = <CanvasRenderingContext2D>(
+        this.mainCanvas.nativeElement.getContext('2d')
+      );
+      this.ngZone.runOutsideAngular(() => this.click());
+    }
+
+    if (this.overlayCanvas && this.overlayCanvas instanceof ElementRef) {
+      this.overlayContext = <CanvasRenderingContext2D>(
+        this.overlayCanvas.nativeElement.getContext('2d')
+      );
+
+      this.overlayContext.fillStyle = 'aqua';
+    }
   }
 
   getPixelsPerMillisecond() {
@@ -122,28 +182,30 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   private setCanvasSize() {
-    this.canvas.nativeElement.width = this.width;
-    this.canvas.nativeElement.height = this.height;
+    this.backgroundCanvas.nativeElement.width = this.width;
+    this.backgroundCanvas.nativeElement.height = this.height;
+
+    this.mainCanvas.nativeElement.width = this.width;
+    this.mainCanvas.nativeElement.height = this.height;
+
+    this.overlayCanvas.nativeElement.width = this.noteHeight * 2;
+    this.overlayCanvas.nativeElement.height = this.height;
   }
 
   private start(): void {
     this.isRunning = true;
     this.noteArray = [];
-    this.stringTuning = new StringTunings(
-      this.ctx,
-      this.tuning,
-      this.noteHeight
-    );
   }
 
   private click(): void {
-    let endOfBar = false;
-    if (this.ctx) {
-      this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-
-      if (this.stringTuning) {
-        this.stringTuning.draw();
-      }
+    let startOfBar = false;
+    if (this.mainContext) {
+      this.mainContext.clearRect(
+        0,
+        0,
+        this.mainContext.canvas.width,
+        this.mainContext.canvas.height
+      );
 
       this.cleanUpPlayedNotes(this.noteHeight);
 
@@ -152,8 +214,8 @@ export class TabScrollerComponent implements AfterViewInit {
         if (this.noteArray.length > 0) {
           startX = this.noteArray[this.noteArray.length - 1].x + this.noteWidth;
         }
-        endOfBar = this._beat < this.lastBeat;
-        this.getNextNote(startX, endOfBar);
+        startOfBar = this._beat < this.lastBeat;
+        this.getNextNote(startX, startOfBar);
         this.lastBeat = this._beat;
       }
 
@@ -163,13 +225,13 @@ export class TabScrollerComponent implements AfterViewInit {
 
       this.id = requestAnimationFrame(() => this.click);
 
-      // const x = this.canvas.nativeElement.width / 2
-      // this.ctx.beginPath();
-      // this.ctx.moveTo(x, 0);
-      // this.ctx.lineTo(x, this.canvas.nativeElement.height);
-      // this.ctx.stroke();
+      // const x = this.mainCanvas.nativeElement.width / 2
+      // this.mainContext.beginPath();
+      // this.mainContext.moveTo(x, 0);
+      // this.mainContext.lineTo(x, this.mainCanvas.nativeElement.height);
+      // this.mainContext.stroke();
 
-      this.ctx.font = '30px serif';
+      this.mainContext.font = '30px serif';
     }
   }
 
@@ -181,18 +243,18 @@ export class TabScrollerComponent implements AfterViewInit {
     });
   }
 
-  getNextNote(startX: number, endOfBar: boolean) {
+  getNextNote(startX: number, startOfBar: boolean) {
     const string: number = this.getRandomIntegerInRange(1, 6);
     const fret: number = this.getRandomIntegerInRange(0, 24);
     const note = new FrettedNote(
-      this.ctx,
+      this.mainContext,
       string,
       fret,
       startX,
       this.noteHeight,
       this.width,
       this.noteMovementPerMillisecond,
-      endOfBar,
+      startOfBar,
       this.height,
       this.noteWidth
     );
@@ -225,14 +287,14 @@ export class FrettedNote {
   public velocity = 0;
 
   constructor(
-    private ctx: CanvasRenderingContext2D,
+    private mainContext: CanvasRenderingContext2D,
     private string: number,
     private fret: number,
     private startX: number,
     private noteHeight: number,
     private width: number,
     private noteMovementPerMillisecond: number,
-    private endOfBar: boolean = false,
+    private startOfBar: boolean = false,
     private fretboardHeight: number,
     private noteWidth: number
   ) {
@@ -252,17 +314,17 @@ export class FrettedNote {
   }
 
   private draw() {
-    this.ctx.font = '48px Outfit';
-    this.ctx.textAlign = 'center';
-    this.ctx.fillText(this.fret.toString(), this.x, this.y);
+    this.mainContext.font = this.noteHeight + 'px Outfit';
+    this.mainContext.textAlign = 'center';
+    this.mainContext.fillText(this.fret.toString(), this.x, this.y);
 
     //TODO: draw bar line if end of bar
-    if (this.endOfBar) {
-      const barX = this.x + this.noteWidth / 2;
-      this.ctx.beginPath();
-      this.ctx.moveTo(barX, 0);
-      this.ctx.lineTo(barX, this.fretboardHeight);
-      this.ctx.stroke();
+    if (this.startOfBar) {
+      const barX = this.x - this.noteWidth / 2;
+      this.mainContext.beginPath();
+      this.mainContext.moveTo(barX, 0);
+      this.mainContext.lineTo(barX, this.fretboardHeight);
+      this.mainContext.stroke();
     }
   }
 }
@@ -272,7 +334,7 @@ export class StringTunings {
   private y = 0;
 
   constructor(
-    private ctx: CanvasRenderingContext2D,
+    private overlayContext: CanvasRenderingContext2D,
     private tuning: string[],
     private noteHeight: number
   ) {}
@@ -283,19 +345,50 @@ export class StringTunings {
 
     const lineX = this.x + this.noteHeight;
 
-    this.ctx.font = this.noteHeight + 'px Outfit';
-    this.ctx.textAlign = 'center';
+    this.overlayContext.font = this.noteHeight + 'px Outfit';
+    this.overlayContext.textAlign = 'center';
 
     this.tuning.forEach((note: string) => {
       this.y += this.noteHeight;
-      this.ctx.fillText(note, this.x, this.y);
+      this.overlayContext.fillText(note, this.x, this.y);
     });
 
     // Nut
-    this.ctx.beginPath();
-    this.ctx.moveTo(lineX, this.noteHeight);
-    this.ctx.lineTo(lineX, this.y + this.tuning.length);
-    this.ctx.stroke();
+    this.overlayContext.beginPath();
+    this.overlayContext.moveTo(lineX, this.noteHeight);
+    this.overlayContext.lineTo(lineX, this.y + this.tuning.length);
+    this.overlayContext.stroke();
+  }
+}
+
+export class Strings {
+  private x = 0;
+  private y = 0;
+
+  constructor(
+    private backgroundContext: CanvasRenderingContext2D,
+    private strings: number,
+    private noteHeight: number,
+    private fretboardWidth: number,
+    private fretboardHeight: number
+  ) {}
+
+  draw() {
+    const drawingStartOffset = this.noteHeight / 2 + 4;
+
+    this.y = drawingStartOffset;
+
+    let i = 0;
+    while (i < this.strings) {
+      this.y += this.noteHeight;
+
+      // Draw Strings
+      this.backgroundContext.beginPath();
+      this.backgroundContext.moveTo(0, this.y);
+      this.backgroundContext.lineTo(this.fretboardWidth, this.y);
+      this.backgroundContext.stroke();
+      i++;
+    }
   }
 }
 
@@ -307,7 +400,7 @@ export class Square {
   private y = 0;
   private z = 30;
 
-  constructor(private ctx: CanvasRenderingContext2D) {}
+  constructor(private mainContext: CanvasRenderingContext2D) {}
 
   moveRight() {
     this.x++;
@@ -318,7 +411,7 @@ export class Square {
   }
 
   private draw() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.fillRect(this.z * this.x, this.z * this.y, this.z, this.z);
+    this.mainContext.fillStyle = this.color;
+    this.mainContext.fillRect(this.z * this.x, this.z * this.y, this.z, this.z);
   }
 }
