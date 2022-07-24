@@ -13,6 +13,7 @@ export class ShellComponent {
   public version = environment.VERSION;
   public running = false;
   public tickCount = 0;
+  public currentBeat = 0;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -20,7 +21,6 @@ export class ShellComponent {
       map((result) => result.matches),
       shareReplay()
     );
-
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,5 +35,9 @@ export class ShellComponent {
 
   ticked(val: number): void {
     this.tickCount = val;
+  }
+
+  beat(val: number): void {
+    this.currentBeat = val;
   }
 }

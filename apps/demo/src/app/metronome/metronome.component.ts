@@ -5,6 +5,7 @@ import {
   Inject,
   Output,
 } from '@angular/core';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { isSupported } from 'angular-audio-context';
 
 import { NoteResolution } from './../models/note-resolution.interface';
@@ -19,23 +20,22 @@ import { IAudioContext, IOscillatorNode } from 'standardized-audio-context';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MetronomeComponent {
-  timerWorker!: Worker;
-  workerMessage = '';
-
-  tickCount = 0;
-  unlocked = false;
-
   current16thNote = 0; // What note is currently last scheduled?
   isPlaying = false; // Are we currently playing?
   lookahead = 25.0; // How frequently to call scheduling function
-  noteLength = 0.05; // length of "beep" (in seconds)
   nextNoteTime = 0.0; // when the next note is due.
+  noteLength = 0.05; // length of "beep" (in seconds)
   noteResolution = 2; // 0 == 16th, 1 == 8th, 2 == quarter note
+  noteResolutions: NoteResolution[] = [];
   notesInQueue: QueuedNote[] = []; // the notes that have been put into the web audio, and may or may not have played yet. {note, time}
   scheduleAheadTime = 0.1; // How far ahead to schedule audio (sec)
   tempo = 60; // tempo (in beats per minute)
-  noteResolutions: NoteResolution[] = [];
+  tickCount = 0;
+  timerWorker!: Worker;
+  unlocked = false;
+  workerMessage = '';
 
+  @Output() beat = new EventEmitter();
   @Output() running = new EventEmitter();
   @Output() tick = new EventEmitter();
 
@@ -93,15 +93,22 @@ export class MetronomeComponent {
       this.nextNoteTime <
       this.audioContext.currentTime + this.scheduleAheadTime
     ) {
+      this.emitBeat(this.current16thNote);
       this.tick.emit(this.tickCount);
       this.scheduleNote(this.current16thNote, this.nextNoteTime);
       this.nextNote();
     }
   }
 
+  private emitBeat(beatNumber: number) {
+    if (this.noteResolution == 1 && beatNumber % 2) return; // we're not playing non-8th 16th notes
+    if (this.noteResolution == 2 && beatNumber % 4) return; // we're not playing non-quarter 8th
+    this.beat.emit(this.current16thNote);
+  }
+
   scheduleNote(beatNumber: number, time: number): void {
-    console.log(beatNumber);
-    console.log(time);
+    // console.log(beatNumber);
+    // console.log(time);
 
     // push the note on the queue, even if we're not playing.
     this.notesInQueue.push({ note: beatNumber, time: time });
