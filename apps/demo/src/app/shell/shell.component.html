@@ -66,11 +66,12 @@
       </section>
 
       <section>
-        <h2>Etude: Tick Count {{ tickCount }}</h2>
+        <h2>Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
           [running]="running"
           [tick]="tickCount"
+          [beat]="currentBeat"
         ></ng-guitar-tab-scroller>
       </section>
 
@@ -79,6 +80,7 @@
         <ng-guitar-metronome
           (running)="metronomeStateChanged($event)"
           (tick)="ticked($event)"
+          (beat)="beat($event)"
         ></ng-guitar-metronome>
       </section>
     </mat-sidenav-content>
