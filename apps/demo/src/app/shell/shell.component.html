@@ -52,7 +52,7 @@
       fxLayoutAlign="start stretch"
       fxLayoutGap="2rem"
     >
-      <section style="padding: 10px">
+      <section style="padding: 10px" fxFlex>
         <h1>NG.Guitar</h1>
         <div style="margin: 20px">
           This is my playground project to experiment with web technologies and
@@ -60,12 +60,12 @@
           where I'm going to awkwardly glue both together.
         </div>
       </section>
-      <section>
+      <section fxFlex>
         <h2>Fretboard:</h2>
         <ng-guitar-fretboard> </ng-guitar-fretboard>
       </section>
 
-      <section>
+      <section fxFlex="grow">
         <h2>Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
@@ -75,7 +75,7 @@
         ></ng-guitar-tab-scroller>
       </section>
 
-      <section style="padding: 10px">
+      <section style="padding: 10px" fxFlex>
         <div>Runng: {{ running }}</div>
         <ng-guitar-metronome
           (running)="metronomeStateChanged($event)"
