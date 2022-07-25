@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component } from '@angular/core';
+import { FretboardService } from '@ng-guitar/theory';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -21,7 +23,17 @@ export class ShellComponent {
       map((result) => result.matches),
       shareReplay()
     );
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    fretboardService: FretboardService
+  ) {
+    fretboardService.musicStrings.forEach((string) => {
+      console.log('String: ' + string.key);
+      string.musicNotes.forEach((note) => {
+        console.log('Note: ' + note.note);
+      });
+    });
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   openedChange(val: any): void {

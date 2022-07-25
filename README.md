@@ -4,7 +4,7 @@ Guitar Related Components for Angular
 
 <div>
 <p>
-<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
 </p>
 </div>
 <p>
@@ -123,5 +123,9 @@ This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.
 - Twitter: [@TimDMorris](https://twitter.com/TimDMorris)
 - Github: [@TimDMorris](https://github.com/TimDMorris)
 - LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
+
+## Inspired By
+
+- [fretboard](https://github.com/pirtleshell/fretboard) - By [Robert Pirtle](https://github.com/pirtleshell)
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
