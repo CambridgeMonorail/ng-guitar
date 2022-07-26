@@ -46,7 +46,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private _bpm = 60;
   private lastBeat = 0;
 
-  private tuning = ['E', 'B', 'G', 'D', 'A', 'E'];
+  private _tuning = ['E', 'B', 'G', 'D', 'A', 'E'];
 
   private noteHeight = 0;
   private noteWidth = 0;
@@ -82,6 +82,10 @@ export class TabScrollerComponent implements AfterViewInit {
     this._beat = value;
   }
 
+  @Input() set tuning(value: string[]) {
+    this._tuning = value;
+  }
+
   constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
@@ -104,7 +108,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private setupStrings() {
     this.strings = new Strings(
       this.backgroundContext,
-      this.tuning.length,
+      this._tuning.length,
       this.noteHeight,
       this.width,
       this.height
@@ -118,7 +122,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private setupTunings() {
     this.stringTuning = new StringTunings(
       this.overlayContext,
-      this.tuning,
+      this._tuning,
       this.noteHeight
     );
 
@@ -172,7 +176,7 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   getNoteHeight(): number {
-    const noteHeight = this.height / (this.tuning.length + 1) - 2;
+    const noteHeight = this.height / (this._tuning.length + 1) - 2;
     return noteHeight;
   }
 

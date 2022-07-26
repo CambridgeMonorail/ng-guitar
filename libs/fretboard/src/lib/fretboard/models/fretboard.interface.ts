@@ -1,6 +1,6 @@
 import { FretboardString } from './fretboard-string.interface';
 
 export interface Fretboard {
-  tuning: string;
+  tuning: string[];
   strings: FretboardString[];
 }
