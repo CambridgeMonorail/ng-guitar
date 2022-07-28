@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.fret {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  gap: 0.5rem;
+  // height: 100%;
+}

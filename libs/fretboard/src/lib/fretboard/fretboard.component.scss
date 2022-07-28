@@ -3,25 +3,17 @@
 }
 
 table {
-  // border: 1px solid #121629;
   border-collapse: collapse;
-  padding: 5px;
   width: 100%;
 }
 table th {
-  // border: 1px solid #121629;
   padding: 5px;
-  // background: #f0f0f0;
-  // color: #313030;
   text-align: center;
   vertical-align: middle;
 }
 
 table tfoot {
-  // border: 1px solid #121629;
   padding: 5px;
-  // background: #f0f0f0;
-  // color: #313030;
   text-align: center;
   vertical-align: middle;
 }
@@ -30,19 +22,16 @@ table td {
   background: #b8c1ec;
   border: 1px solid #121629;
   color: white;
-  height: 35px;
-  padding: 5px;
-  text-align: center;
   text-align: center;
   vertical-align: middle;
+  padding: 0.4rem;
 }
 
 table td.nut {
-  border-right: 10px solid white;
-  text-align: center;
-  padding: 5px;
   background: black;
+  border-right: 10px solid white;
   color: white;
+  text-align: center;
   text-align: center;
   vertical-align: middle;
 }
@@ -51,26 +40,27 @@ table td .fret {
   background: #b8c1ec;
   border: 1px solid #121629;
   color: white;
-  height: 100px;
-  padding: 5px;
   text-align: center;
   text-align: center;
   vertical-align: middle;
 }
 
 table td.fret-marker {
-  padding: 5px;
   color: white;
   text-align: center;
   vertical-align: middle;
 }
 
+.fret-content {
+  margin: 0 auto;
+}
+
 .note-circle {
   background: #fffffe;
-  color: #121629;
-  padding: 2.5px 10px;
   border-radius: 50%;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  font-size: 17.5px;
+  color: #121629;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.2rem;
+  width: 2rem;
 }

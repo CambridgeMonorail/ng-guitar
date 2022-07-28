@@ -13,6 +13,7 @@
     "affected:lint": "nx affected:lint",
     "affected:test": "nx affected:test",
     "affected": "nx affected",
+    "audit": "npm audit | Select-String -Pattern '(High | Critical)' -Context 0,10",
     "build": "ng build --base-href=/ng-guitar/",
     "dep-graph": "nx dep-graph",
     "docs": "node tools/scripts/generate-docs.js",
@@ -57,7 +58,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~14.0.0",
+    "@angular-devkit/build-angular": "^14.1.0",
     "@angular-eslint/eslint-plugin": "~13.2.1",
     "@angular-eslint/eslint-plugin-template": "~13.2.1",
     "@angular-eslint/template-parser": "~13.2.1",

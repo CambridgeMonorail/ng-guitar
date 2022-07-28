@@ -1,9 +1,10 @@
 {
   "recommendations": [
     "angular.ng-template",
-    "nrwl.angular-console",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint"
+    "Gruntfuggly.todo-tree",
+    "nrwl.angular-console"
   ]
 }

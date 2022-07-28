@@ -53,7 +53,7 @@
       fxLayoutGap="2rem"
     >
       <section style="padding: 10px" fxFlex>
-        <h1>NG.Guitar</h1>
+        <h1>Guitar Improv Practice Trainer</h1>
         <div style="margin: 20px">
           This is my playground project to experiment with web technologies and
           tools related to angular. I like guitar, I write angular, this is
@@ -61,17 +61,19 @@
         </div>
       </section>
       <section fxFlex>
-        <h2>Fretboard:</h2>
-        <ng-guitar-fretboard> </ng-guitar-fretboard>
+        <h2>Tuning: {{ fretboard.tuning }}</h2>
+        <ng-guitar-fretboard [fretboard]="fretboard"> </ng-guitar-fretboard>
       </section>
 
       <section fxFlex="grow">
-        <h2>Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
+        <h2>Totally Random Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
+          style="height: 100%"
           [running]="running"
           [tick]="tickCount"
           [beat]="currentBeat"
+          [tuning]="fretboard.tuning"
         ></ng-guitar-tab-scroller>
       </section>
 

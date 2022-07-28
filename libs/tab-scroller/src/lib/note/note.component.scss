@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.note {
+  align-items: center;
+  display: flex;
+  flex-grow: initial;
+  font-size: 1.5rem;
+  justify-content: center;
+  justify-content: center;
+  min-height: 2rem;
+  min-width: 3rem;
+  padding: 0.25rem;
+  width: 1.5rem;
+}
+
+.note-wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) calc(50% - 1px),
+    rgba(35, 41, 70, 0.5) calc(50%),
+    rgba(0, 0, 0, 0) calc(50% + 1px)
+  );
+}

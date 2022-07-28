@@ -1,3 +1,4 @@
+import { FretboardService } from '@ng-guitar/theory';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -48,7 +49,7 @@ import { ShellComponent } from './shell/shell.component';
     ReactiveFormsModule,
     TabScrollerModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
+  providers: [FretboardService],
 })
 export class AppModule {}
