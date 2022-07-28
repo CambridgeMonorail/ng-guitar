@@ -98,6 +98,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 @ng-guitar/tab-scroller
 
+@ng-guitar/theory
+
 angular-audio-context
 MIT
 MIT License
