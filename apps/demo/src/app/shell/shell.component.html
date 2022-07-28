@@ -66,9 +66,10 @@
       </section>
 
       <section fxFlex="grow">
-        <h2>Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
+        <h2>Totally Random Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
+          style="height: 100%"
           [running]="running"
           [tick]="tickCount"
           [beat]="currentBeat"

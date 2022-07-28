@@ -1,5 +1,18 @@
 <div class="tab-scroller-wrapper">
-  <canvas class="background-canvas" #backgroundCanvas> </canvas>
-  <canvas class="main-canvas" #mainCanvas> </canvas>
-  <canvas class="overlay-canvas" #overlayCanvas> </canvas>
+  <div class="background-canvas"></div>
+  <div @list class="list-container">
+    <ng-guitar-fret class="nut" [notes]="_tuning"></ng-guitar-fret>
+
+    <div @items class="box" *ngFor="let item of notesList; let i = index">
+      <ng-guitar-fret
+        [notes]="item"
+        [ngClass]="{ playhead: i === 0 }"
+      ></ng-guitar-fret>
+    </div>
+  </div>
+  <div class="overlay-canvas">
+    <div class="before"></div>
+    <div class="target"></div>
+    <div class="after"></div>
+  </div>
 </div>

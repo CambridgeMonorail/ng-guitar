@@ -1,38 +1,76 @@
 :host {
   display: block;
-  // height: inherit;
-  // width: inherit;
 }
 
 .tab-scroller-wrapper {
-  // height: fit-content;
-  // width: fit-content;
-  // display: inline-block;
+  height: 100%;
   position: relative;
+  width: 100%;
 }
 
 .background-canvas {
+  align-items: stretch;
   background-color: #b8c1ec;
   color: #121629;
-  height: 250px;
+  display: flex;
+  height: 280px;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
 
-.main-canvas {
-  height: 250px;
-  left: 0;
+.list-container {
   position: absolute;
-  top: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
   width: 100%;
+}
+
+.list-container {
+  flex-direction: row;
+}
+
+.box {
+  color: #121629;
+  background-color: #b8c1ec;
+}
+
+.nut {
+  background: black;
+  border-right: 10px solid white;
+  color: #fffffe;
+  text-align: center;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.playhead {
+  font-weight: bold;
 }
 
 .overlay-canvas {
-  background-color: #b8c1ec;
-  height: 250px;
+  opacity: 0.2;
+  height: 280px;
   left: 0;
   position: absolute;
   top: 0;
+  width: 100%;
+  display: flex;
+}
+
+.before {
+  flex-grow: 0;
+  width: 66px;
+}
+
+.target {
+  background-color: black;
+  flex-grow: 0;
+  width: 56px;
+}
+
+.after {
+  flex-grow: 1;
 }
