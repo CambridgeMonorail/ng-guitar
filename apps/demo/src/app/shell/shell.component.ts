@@ -1,7 +1,7 @@
-import { FretboardString } from '@ng-guitar/fretboard';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { Fretboard } from '@ng-guitar/fretboard';
+import { ProgressionService } from '@ng-guitar/etude';
+import { Fretboard, FretboardString } from '@ng-guitar/fretboard';
 import { FretboardService } from '@ng-guitar/theory';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -15,6 +15,7 @@ import { environment } from '../../environments/environment';
 })
 export class ShellComponent {
   public version = environment.VERSION;
+
   public running = false;
   public tickCount = 0;
   public currentBeat = 0;
@@ -30,7 +31,8 @@ export class ShellComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private fretboardService: FretboardService
+    private fretboardService: FretboardService,
+    private progressionService: ProgressionService
   ) {
     this.fretboard = this.setupFretboard();
 
@@ -77,5 +79,7 @@ export class ShellComponent {
 
   beat(val: number): void {
     this.currentBeat = val;
+    const next = this.progressionService.getNextNote(1);
+    console.log('next: ', next);
   }
 }
