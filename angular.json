@@ -6,8 +6,12 @@
     "demo-e2e": "apps/demo-e2e",
     "etude": "libs/etude",
     "fretboard": "libs/fretboard",
+    "fretboard-e2e": "apps/fretboard-e2e",
+    "shared-storybook": "libs/shared-storybook",
+    "shared-storybook-e2e": "apps/shared-storybook-e2e",
     "shared-ui": "libs/shared/ui",
     "tab-scroller": "libs/tab-scroller",
+    "tab-scroller-e2e": "apps/tab-scroller-e2e",
     "theory": "libs/theory"
   }
 }

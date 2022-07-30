@@ -3,15 +3,48 @@ import { Injectable } from '@angular/core';
 import { MusicNote } from './music-note';
 import { MusicString } from './music-string';
 
+/**
+ * Create and manage a fretboard.
+ *
+ * @export
+ * @class FretboardService
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class FretboardService {
-  musicStrings: MusicString[] = [];
-  tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E'];
-  numFrets = 22;
+  length: number;
 
-  public length: number;
+  /**
+   * Strings of the Fretboard.
+   *
+   * @type {MusicString[]}
+   * @memberof FretboardService
+   */
+  musicStrings: MusicString[] = [];
+
+  /**
+   * the root note of each of the strings
+   *
+   * @type {string[]}
+   * @memberof FretboardService
+   */
+  public tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E'];
+
+  /**
+   * the number of frets
+   *
+   * @type {number}
+   * @memberof FretboardService
+   */
+  public numFrets = 22;
+
+  /**
+   * the number of strings
+   *
+   * @type {number}
+   * @memberof FretboardService
+   */
   public numStrings: number;
 
   constructor() {
@@ -25,7 +58,16 @@ export class FretboardService {
     }
   }
 
-  static parseTuningString(tuning: string) {
+  /**
+   * Returns the fretboard as a 2D array of notes.
+   *
+   * @private
+   * @static
+   * @param {string} tuning
+   * @return {*}
+   * @memberof FretboardService
+   */
+  private static parseTuningString(tuning: string) {
     if (typeof tuning !== 'string') {
       throw new Error(`Expectedthis.tuning to be string. Found ${tuning}`);
     }
@@ -49,7 +91,15 @@ export class FretboardService {
   //   returnthis.tuning;
   // }
 
-  find(note: string) {
+  /**
+   * Returns all occurrences of a note across the fretboard in a 2D array of fret numbers. For example,
+   * if the first occurrence of an A occurs on the 1st string, 5th fret, fretboard.find('A')[0][0] = 5.
+   *
+   * @param {string} note
+   * @return {*}
+   * @memberof FretboardService
+   */
+  public find(note: string) {
     const notes: number[][] = [];
     this.musicStrings.forEach((string, i) => {
       notes[i] = string.find(note);
@@ -57,7 +107,14 @@ export class FretboardService {
     return notes;
   }
 
-  retune(tuneArr: string[]) {
+  /**
+   * Re-tunes the fretboard. This is useful when the tuning changes.
+   *
+   * @param {string[]} tuneArr
+   * @return {*}
+   * @memberof FretboardService
+   */
+  public retune(tuneArr: string[]) {
     if (tuneArr.length !== self.length) {
       throw new Error(
         `Not enough notes given to retune. Expected ${self.length}, found ${tuneArr.length}`
@@ -70,13 +127,27 @@ export class FretboardService {
     return this.musicStrings;
   }
 
-  tuneAll(steps: number) {
+  /**
+   * Tunes the fretboard up or down a given number of half-steps.
+   *
+   * @param {number} steps
+   * @return {*}
+   * @memberof FretboardService
+   */
+  public tuneAll(steps: number) {
     this.musicStrings.forEach((string) => string.tune(steps));
     return this.musicStrings;
   }
 
+  /**
+   *
+   *
+   * @private
+   * @param {*} func
+   * @memberof FretboardService
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  forEach(func: any) {
+  private forEach(func: any) {
     // console.log(this);
     for (let i = 0; i < this.numStrings; i++) {
       func.call(this.musicStrings, this.musicStrings[i], i, this.musicStrings);
