@@ -127,5 +127,6 @@ This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.
 ## Inspired By
 
 - [fretboard](https://github.com/pirtleshell/fretboard) - By [Robert Pirtle](https://github.com/pirtleshell)
+- [tonaljs / tonal](https://github.com/tonaljs/tonal)
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
