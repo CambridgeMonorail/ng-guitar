@@ -2,6 +2,8 @@
 
 Guitar Related Components for Angular
 
+**Note:** This is a new project that is actively under development.
+
 <div>
 <p>
 <a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
