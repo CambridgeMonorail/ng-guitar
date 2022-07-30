@@ -4,6 +4,8 @@
 /dist
 /tmp
 /out-tsc
+/documentation
+documentation.json
 
 # dependencies
 node_modules
@@ -43,4 +45,5 @@ testem.log
 Thumbs.db
 
 .angular
+
 
