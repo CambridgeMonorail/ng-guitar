@@ -1,22 +1,22 @@
-<h1 align="center">Welcome to ng-guitar 👋</h1>
+<div id="top"></div>
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="dev-docs/images/logo-152x152.png" alt="Logo" width="80" height="80">
+  </a>
+</div>
 
-Guitar Related Components for Angular
+<h1 align="center">NG-GUITAR</h1>
+<h2 align="center">For Those About To Code We Salute You</h2>
 
-**Note:** This is a new project that is actively under development.
+<br/>
+
+Guitar Related Components built for Angular Material.
+
+<br/>
 
 <div>
 <p>
-<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
-</p>
-</div>
-<p>
-  <a href="https://github.com/tophat/getting-started/blob/master/scorecard.md" target="_blank">
-    <img alt="Project Maturity" src="https://img.shields.io/badge/Maturity-Level%201%20--%20New%20Project-yellow.svg" />
-  </a>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="http://localhost:4200" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
+<img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="http://localhost:4200" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -24,6 +24,23 @@ Guitar Related Components for Angular
     <img alt="Twitter: TimDMorris" src="https://img.shields.io/twitter/follow/TimDMorris.svg?style=social" />
   </a>
 </p>
+</div>
+
+<br/>
+
+<p>
+<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://timdmorris.github.io/ng-guitar/shared-storybook/index.html"><img src="https://img.shields.io/badge/View_components-Storybook-F74480?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://timdmorris.github.io/ng-guitar/docs/index.html"><img src="https://img.shields.io/badge/View_documents-compodoc-1F4E94?style=for-the-badge" alt="View demo - GH Pages"></a>
+</p>
+<br/>
+<div>
+  <a href="https://github.com/tophat/getting-started/blob/master/scorecard.md" target="_blank">
+    <img alt="Project Maturity" src="https://img.shields.io/badge/Maturity-Level%201%20--%20New%20Project-yellow.svg" />
+  </a> &nbsp;This is a new project that is actively under development.  There will be refactoring!
+</div>
+
+<br>
 
 <p>
 
@@ -33,43 +50,147 @@ Guitar Related Components for Angular
 
 </p>
 
-<p>
-  <a href="https://angular.io/" target="_blank">
-    <img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" />
-  </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-    <img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
-  </a>
+<br/>
 
-</p>
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#for-component-consumers">For Component Consumers</a></li>
+        <li><a href="#for-contributors">For Contributors</a></li>
+        <ul>
+          <li><a href="#contributing">Contributing</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#usage">Usage</a></li>
+          <li><a href="#run-tests">Run tests</a></li>
+          <li><a href="#committing">Committing</a></li>
+        </ul>
+      </ul>
+    </li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#bugs-and-refactor">Bugs and Refactor</a></li>
+    <li><a href="#show-your-support">Show your support</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#authoe">Author</a></li>
+    <li><a href="#inspired-by">Inspired By</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-## Install
+<br/>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+<div align="center">
+  <a href="https://timdmorris.github.io/ng-guitar/">
+    <img src="dev-docs/images/screenshot.png" alt="Demo Screenshot" >
+  </a>
+</div>
+
+NG-Guitar is a collection of components for Angular Material that are intended to be used together to build guitar related web applications.
+
+Here's why:
+
+- There's lots of great guitar focussed projects on GitHub but none I could find on this tech stack.
+- I was looking for a way to build a guitar related web application that was easy to use and easy to maintain.
+- It's really not a good idea for anyone to become [the ghost that codes](https://www.troyhunt.com/the-ghost-who-codes-how-anonymity-is/).
+- It's a playground for me to experiment with web technologies well away from anything that may have any IP overlap with my day job :wink:
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Built With
+
+<a href="https://angular.io/" target="_blank"><img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" /></a>
+
+<a href="https://material.angular.io/" target="_blank"><img alt="Angular Material" src="https://img.shields.io/badge/Angular_Material-3F51B5?style=for-the-badge&logo=angular&logoColor=white+" /></a>
+
+<a href="https://www.typescriptlang.org/" target="_blank"><img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" /></a>
+
+<a href="https://sass-lang.com/" target="_blank"><img alt="Sass" src="https://img.shields.io/badge/Sass-CC6699.svg?style=for-the-badge&logo=Sass&logoColor=white" /></a>
+
+<a href="https://nx.dev/" target="_blank"><img alt="Nrwl Nx" src="https://img.shields.io/badge/Nx-143055.svg?style=for-the-badge&logo=Nx&logoColor=white" /></a>
+
+<a href="https://storybook.js.org/" target="_blank"><img alt="Storybook" src="https://img.shields.io/badge/storybook-F74480?style=for-the-badge&logo=storybook&logoColor=white+" /></a>
+
+<a href="https://code.visualstudio.com/" target="_blank"><img alt="VS Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?style=for-the-badge&logo=Visual-Studio-Code&logoColor=white" /></a>
+
+<a href="https://docs.github.com/en/actions/" target="_blank"><img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=for-the-badge&logo=GitHub-Actions&logoColor=white" /></a>
+
+<a href="https://docs.github.com/en/pages" target="_blank"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-222222.svg?style=for-the-badge&logo=GitHub-Pages&logoColor=white" /></a>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+It's really easy to get started with NG-Guitar.
+
+### Prerequisites
+
+These components are built for use on top of Angular Material and TypeScript. You'll need to have a project based on this tech stack in order to use them.
+
+<!-- For Consumers -->
+
+### For Component Consumers
+
+This is a new preoject under active development. There will be refactoring! The intention is once the components reach a suitable level of maturity they will be published as packages. If you are interested in checking out progress and how they are evolving see the [Storybook]() or [Compodoc]() pages
+
+When the components are published as packages, we will add instructions here so you will be able to use them in your own projects.
+
+Examples of the Components in use and [the latest Demo can be found here](https://timdmorris.github.io/ng-guitar/).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- For Consumers -->
+
+### For Contributors
+
+This instructions below describe on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+#### Contributing
+
+Contributions, [issues and feat requests](https://github.com/TimDMorris/ng-guitar/issues) are welcome!
+
+#### Install
 
 ```sh
 npm install --legacy-peer-deps
 ```
 
-## Usage
+#### Usage
 
 ```sh
 npm run start
 ```
 
-## Run tests
+#### Run tests
 
 ```sh
 npm run test
 ```
 
-## Committing
+#### Committing
 
-See [Commit Rules](docs dev-docs/commit-rules.md)
-
-## 🤝 Contributing
-
-Contributions, issues and feat requests are welcome!
+See [Commit Rules](dev-docs/commit-rules.md)
 
 Feel free to check [issues page](https://github.com/TimDMorris/ng-guitar/issues).
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Vision
 
@@ -81,12 +202,15 @@ The app should take advantage of what psychological research about learning show
 
 It would great as a future enhancement if note recognition could be integrated so the application can give feedback and give better automatic control of progression through increasingly complex exercises.
 
-## Roadmap
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Roadmap
 
 - [x] feat: ~~Accurate Typescript Metronome Component~~
 - [x] chore: ~~setup dependabot~~
 - [x] ci: ~~add commitlint to enforce conventioanl commits~~
-- [ ] ci: add <https://github.com/DavidWells/markdown-magic/>
+- [x] feat: ~~add storybook and compodoc~~
+- [ ] feat: add <https://github.com/DavidWells/markdown-magic/>
 - [ ] feat: SVG based metronome visulisation component
 - [ ] ci: refactor ci pipeline to only build affected
 - [ ] chore: add semver and changelog generation
@@ -99,23 +223,27 @@ It would great as a future enhancement if note recognition could be integrated s
 - [ ] feat: simple animated tab scroller
 - [ ] feat: practice pattern generator
 
-## Bugs / Refactor
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Bugs and Refactor
 
 - [x] fix: ~~bind tempo to tempo not tickcount~~
 - [ ] fix: ~~svg header/footer background path when publishing to subdirectory~~
 
----
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## 📝 License
 
 Copyright © 2022 [T.D.Morris](https://github.com/TimDMorris).<br />
 This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.md) licensed.
 
----
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Author
 
@@ -126,9 +254,19 @@ This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.
 - Github: [@TimDMorris](https://github.com/TimDMorris)
 - LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Inspired By
 
 - [fretboard](https://github.com/pirtleshell/fretboard) - By [Robert Pirtle](https://github.com/pirtleshell)
 - [tonaljs / tonal](https://github.com/tonaljs/tonal)
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Acknowledgements
+
+- [Angular Material](https://material.angular.io/)
+- [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
+- [GitHub Profile Badges](https://home.aveek.io/GitHub-Profile-Badges/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
