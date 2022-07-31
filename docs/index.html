@@ -1,0 +1,214 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ng-guitar documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/theme-material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ng-guitar documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 align="center">Welcome to ng-guitar 👋</h1>
+
+<p>Guitar Related Components for Angular</p>
+<p><strong>Note:</strong> This is a new project that is actively under development.</p>
+<div>
+<p>
+<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
+</p>
+</div>
+<p>
+  <a href="https://github.com/tophat/getting-started/blob/master/scorecard.md" target="_blank">
+    <img alt="Project Maturity" src="https://img.shields.io/badge/Maturity-Level%201%20--%20New%20Project-yellow.svg" />
+  </a>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="http://localhost:4200" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="http://localhost:4200" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/TimDMorris" target="_blank">
+    <img alt="Twitter: TimDMorris" src="https://img.shields.io/twitter/follow/TimDMorris.svg?style=social" />
+  </a>
+</p>
+
+<p>
+
+<p><img src="https://img.shields.io/github/commit-activity/m/timdmorris/ng-guitar" alt="GitHub commit activity" class="img-responsive">
+<a href="https://github.com/TimDMorris/ng-guitar/actions"><img src="https://github.com/TimDMorris/ng-guitar/workflows/build-and-deploy/badge.svg" alt="CI Status" class="img-responsive"></a>
+<a href="https://github.com/TimDMorris/ng-guitar/actions/workflows/codeql-analysis.yml"><img src="https://github.com/TimDMorris/ng-guitar/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" class="img-responsive"></a></p>
+</p>
+
+<p>
+  <a href="https://angular.io/" target="_blank">
+    <img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" />
+  </a>
+    <a href="https://www.typescriptlang.org/" target="_blank">
+    <img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
+
+</p>
+
+<h2 id="install">Install</h2>
+<div><pre class="line-numbers"><code class="language-sh">npm install --legacy-peer-deps</code></pre></div><h2 id="usage">Usage</h2>
+<div><pre class="line-numbers"><code class="language-sh">npm run start</code></pre></div><h2 id="run-tests">Run tests</h2>
+<div><pre class="line-numbers"><code class="language-sh">npm run test</code></pre></div><h2 id="committing">Committing</h2>
+<p>See [Commit Rules](docs dev-docs/commit-rules.md)</p>
+<h2 id="🤝-contributing">🤝 Contributing</h2>
+<p>Contributions, issues and feat requests are welcome!</p>
+<p>Feel free to check <a href="https://github.com/TimDMorris/ng-guitar/issues">issues page</a>.</p>
+<h2 id="vision">Vision</h2>
+<p>I find it difficult to keep focus when practicing the guitar scales and patterns that make up the foundations of improvisation. I seem to be switching between tinkering with the metronome, referring to reference materials for whatever I&#39;m learning to practice. trying to track how long I&#39;ve been practicing any one thing and my overall progress, so I know what weak spots to focus on.
+This seems like a good candidate for an app, in fact I can think of a few different guitar-based apps that don&#39;t seem to currently exist, so the plan here is to build the elements of this as re-usable components and then later make those components available as packages.</p>
+<p>The aim is that the initial app will provide a metronome that can be configured to accelerate to help speed training. This will have a scrolling tab display linked to it which will suggest patterns to practice. These patterns will evolve in complexity over time. The app should track how long you have been practicing and suggest regular breaks to avoid repetitive strain injuries.
+The app should take advantage of what psychological research about learning shows us and feature on one pattern to learn, switch to another then switch back to re-enforce the learning of the patterns.</p>
+<p>It would great as a future enhancement if note recognition could be integrated so the application can give feedback and give better automatic control of progression through increasingly complex exercises.</p>
+<h2 id="roadmap">Roadmap</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> feat: <del>Accurate Typescript Metronome Component</del></li>
+<li><input checked="" disabled="" type="checkbox"> chore: <del>setup dependabot</del></li>
+<li><input checked="" disabled="" type="checkbox"> ci: <del>add commitlint to enforce conventioanl commits</del></li>
+<li><input disabled="" type="checkbox"> ci: add <a href="https://github.com/DavidWells/markdown-magic/">https://github.com/DavidWells/markdown-magic/</a></li>
+<li><input disabled="" type="checkbox"> feat: SVG based metronome visulisation component</li>
+<li><input disabled="" type="checkbox"> ci: refactor ci pipeline to only build affected</li>
+<li><input disabled="" type="checkbox"> chore: add semver and changelog generation</li>
+<li><input disabled="" type="checkbox"> feat: demo theming and theme switching</li>
+<li><input disabled="" type="checkbox"> feat: getting started page for consumers</li>
+<li><input disabled="" type="checkbox"> feat: demo about, version and dependency display</li>
+<li><input disabled="" type="checkbox"> feat: fretboard / chord pattern visaulization component</li>
+<li><input disabled="" type="checkbox"> feat: metronome speed trainer i.e. define min max range, incrementally accellerate</li>
+<li><input disabled="" type="checkbox"> feat: experimental in browser ML note recognition</li>
+<li><input disabled="" type="checkbox"> feat: simple animated tab scroller</li>
+<li><input disabled="" type="checkbox"> feat: practice pattern generator</li>
+</ul>
+<h2 id="bugs--refactor">Bugs / Refactor</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> fix: <del>bind tempo to tempo not tickcount</del></li>
+<li><input disabled="" type="checkbox"> fix: <del>svg header/footer background path when publishing to subdirectory</del></li>
+</ul>
+<hr>
+<h2 id="show-your-support">Show your support</h2>
+<p>Give a ⭐️ if this project helped you!</p>
+<h2 id="📝-license">📝 License</h2>
+<p>Copyright © 2022 <a href="https://github.com/TimDMorris">T.D.Morris</a>.<br />
+This project is <a href="https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.md">MIT</a> licensed.</p>
+<hr>
+<h2 id="author">Author</h2>
+<p>👤 <strong>TimDMorris</strong></p>
+<ul>
+<li>Website: <a href="https://timdmorris.github.io/ng-guitar/">https://timdmorris.github.io/ng-guitar/</a></li>
+<li>Twitter: <a href="https://twitter.com/TimDMorris">@TimDMorris</a></li>
+<li>Github: <a href="https://github.com/TimDMorris">@TimDMorris</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/timdmorris">@timdmorris</a></li>
+</ul>
+<h2 id="inspired-by">Inspired By</h2>
+<ul>
+<li><a href="https://github.com/pirtleshell/fretboard">fretboard</a> - By <a href="https://github.com/pirtleshell">Robert Pirtle</a></li>
+<li><a href="https://github.com/tonaljs/tonal">tonaljs / tonal</a></li>
+</ul>
+<p><em>This README was generated with ❤️ by <a href="https://github.com/kefranabg/readme-md-generator">readme-md-generator</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
