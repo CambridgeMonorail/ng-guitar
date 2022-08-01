@@ -1,3 +1,4 @@
+import { FretboardKey } from './../models/fretboard-key.enum';
 import { Injectable } from '@angular/core';
 
 import { MusicNote } from './music-note';
@@ -22,6 +23,14 @@ export class FretboardService {
    * @memberof FretboardService
    */
   musicStrings: MusicString[] = [];
+
+  /**
+   * The current key
+   *
+   * @type {string[]}
+   * @memberof FretboardService
+   */
+  public key: FretboardKey = FretboardKey.C;
 
   /**
    * the root note of each of the strings

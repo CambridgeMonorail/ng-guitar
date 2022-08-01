@@ -1,13 +1,13 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  base: 'dark',
+  base: 'light',
 
   colorPrimary: 'hotpink',
   colorSecondary: 'deepskyblue',
 
   // UI
-  appBg: 'white',
+  appBg: 'blue',
   appContentBg: 'silver',
   appBorderColor: 'grey',
   appBorderRadius: 4,

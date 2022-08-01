@@ -17,5 +17,5 @@ const Template: Story<NoteComponent> = (args: NoteComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  note: '',
+  note: 'C',
 };

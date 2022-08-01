@@ -210,25 +210,36 @@ It would great as a future enhancement if note recognition could be integrated s
 - [x] chore: ~~setup dependabot~~
 - [x] ci: ~~add commitlint to enforce conventioanl commits~~
 - [x] feat: ~~add storybook and compodoc~~
-- [ ] feat: add <https://github.com/DavidWells/markdown-magic/>
-- [ ] feat: SVG based metronome visulisation component
-- [ ] ci: refactor ci pipeline to only build affected
-- [ ] chore: add semver and changelog generation
-- [ ] feat: demo theming and theme switching
-- [ ] feat: getting started page for consumers
-- [ ] feat: demo about, version and dependency display
-- [ ] feat: fretboard / chord pattern visaulization component
-- [ ] feat: metronome speed trainer i.e. define min max range, incrementally accellerate
-- [ ] feat: experimental in browser ML note recognition
-- [ ] feat: simple animated tab scroller
-- [ ] feat: practice pattern generator
+- [x] feat(scroller): ~~simple animated tab scroller~~
+- [ ] feat(fretboard): Show notes in key
+- [ ] feat(fretboard): chord pattern visualization component
+- [ ] feat(fretboard): refactor fretboard to be closer to material list
+- [ ] feat(fretboard): refactor fretboard to support left handed users
+- [ ] feat(fretboard): refactor fretboard to support responsive design
+- [ ] feat(fretboard): implement material theming
+- [ ] feat(fretboard): highlight notes from key
+- [ ] feat(demo): add theme switching to demo
+- [ ] feat(scroller): add theme switching to demo
+- [ ] feat(docs): add <https://github.com/DavidWells/markdown-magic/>
+- [ ] feat(metronome): SVG based metronome visulisation component
+- [ ] chore(ci): refactor ci pipeline to only build affected
+- [ ] chore(ci): add semver and changelog generation
+- [ ] feat(demo): getting started page for consumers
+- [ ] feat(demo):about, version and dependency display
+- [ ] feat(metronome): speed trainer i.e. define min max range, incrementally accellerate
+- [ ] feat(feedback): experimental in browser ML note recognition
+- [ ] feat(etude): practice pattern generator
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Bugs and Refactor
 
 - [x] fix: ~~bind tempo to tempo not tickcount~~
-- [ ] fix: ~~svg header/footer background path when publishing to subdirectory~~
+- [x] fix: ~~svg header/footer background path when publishing to subdirectory~~
+- [x] fix(docs): storybook material theming
+- [x] fix(fretboard): fretmarkers do not respect number of frets
+- [x] fix(demo): dead menu space on initial load
+- [x] fix(ci): semver numbering not written back to main package.json
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

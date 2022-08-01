@@ -49,26 +49,12 @@ import {
   ],
 })
 export class TabScrollerComponent implements AfterViewInit {
-  // New stuff start
   counter = 5;
   list = [1, 2, 3, 4];
 
   notesList: string[][] = [];
 
-  // New stuff end
-
-  @ViewChild('backgroundCanvas', { static: false })
-  private backgroundCanvas!: ElementRef<HTMLCanvasElement>;
-
-  @ViewChild('mainCanvas', { static: false })
-  private mainCanvas!: ElementRef<HTMLCanvasElement>;
-
-  @ViewChild('overlayCanvas', { static: false })
-  private overlayCanvas!: ElementRef<HTMLCanvasElement>;
-
-  private backgroundContext!: CanvasRenderingContext2D;
   private mainContext!: CanvasRenderingContext2D;
-  private overlayContext!: CanvasRenderingContext2D;
 
   private id = 0;
 
@@ -84,7 +70,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private lastBeat = 0;
 
   private noteHeight = 0;
-  private noteWidth = 0;
+  private noteWidth = 56;
 
   _tuning = ['E', 'B', 'G', 'D', 'A', 'E'];
 
@@ -101,20 +87,40 @@ export class TabScrollerComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * Animation Event
+   *
+   * @memberof TabScrollerComponent
+   */
   @Input() set tick(value: number) {
     this.tickCount = value;
     this.click();
   }
 
+  /**
+   * Beats per minute
+   *
+   * @memberof TabScrollerComponent
+   */
   @Input() set bpm(value: number) {
     this._bpm = value;
     this.getVelocity();
   }
 
+  /**
+   * Current Beat In Bar
+   *
+   * @memberof TabScrollerComponent
+   */
   @Input() set beat(value: number) {
     this._beat = value;
   }
 
+  /**
+   * Array Of Notes Making up Guitar Tuning
+   *
+   * @memberof TabScrollerComponent
+   */
   @Input() set tuning(value: string[]) {
     this._tuning = value;
   }
@@ -152,6 +158,7 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   getNoteWidth(): number {
+    //56
     const noteWidth = this.noteHeight + 30;
     return noteWidth;
   }
@@ -218,6 +225,7 @@ export class TabScrollerComponent implements AfterViewInit {
   private stop(): void {
     this.isRunning = false;
     cancelAnimationFrame(this.id);
+    this.notesList = [];
   }
 
   private getHeight(): number {
