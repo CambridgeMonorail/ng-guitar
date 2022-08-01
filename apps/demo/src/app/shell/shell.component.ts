@@ -29,6 +29,8 @@ export class ShellComponent {
       shareReplay()
     );
 
+  public key = 'C';
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private fretboardService: FretboardService,
@@ -48,8 +50,11 @@ export class ShellComponent {
   private setupFretboard() {
     const newFretboard: Fretboard = {
       tuning: this.fretboardService.tuning,
+      key: this.fretboardService.key,
       strings: [],
     };
+
+    this.key = this.fretboardService.key.valueOf();
 
     this.fretboardService.musicStrings.forEach((string) => {
       console.log('String: ' + string.key);
@@ -57,7 +62,12 @@ export class ShellComponent {
 
       string.musicNotes.forEach((note, index) => {
         console.log('Note: ' + note.note);
-        newString.notes.push({ note: note.note, fret: index, active: false });
+        newString.notes.push({
+          note: note.note,
+          fret: index,
+          active: false,
+          inKey: false,
+        });
       });
       newFretboard.strings.push(newString);
     });
@@ -70,7 +80,8 @@ export class ShellComponent {
 
   metronomeStateChanged(val: boolean) {
     console.log('metronomeStateChanged: ', val);
-    this.running = val;
+
+    this.setState(val);
   }
 
   ticked(val: number): void {
@@ -81,5 +92,13 @@ export class ShellComponent {
     this.currentBeat = val;
     const next = this.progressionService.getNextNote(1);
     console.log('next: ', next);
+  }
+
+  private setState(running: boolean) {
+    this.running = running;
+    if (this.running) {
+      this.tickCount = 0;
+      this.currentBeat = 0;
+    }
   }
 }

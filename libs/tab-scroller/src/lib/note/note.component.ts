@@ -1,10 +1,11 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+/**
+ * Displays a Fretted Note
+ *
+ * @export
+ * @class NoteComponent
+ */
 @Component({
   selector: 'ng-guitar-note',
   templateUrl: './note.component.html',
@@ -12,5 +13,10 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteComponent {
+  /**
+   * Note Name
+   *
+   * @memberof NoteComponent
+   */
   @Input() note = '';
 }

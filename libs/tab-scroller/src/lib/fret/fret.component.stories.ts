@@ -17,5 +17,5 @@ const Template: Story<FretComponent> = (args: FretComponent) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  notes: [],
+  notes: ['E', 'A', 'D', 'G', 'B', 'E'],
 };

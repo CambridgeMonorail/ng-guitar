@@ -35,7 +35,7 @@
 
         <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>inbox</mat-icon>
-          <p matLine>Setting</p>
+          <p matLine>Settings</p>
         </a>
         <a mat-list-item class="disabled">
           <mat-icon mat-list-icon>star</mat-icon>
@@ -61,12 +61,15 @@
         </div>
       </section>
       <section fxFlex>
-        <h2>Tuning: {{ fretboard.tuning }}</h2>
+        <h2>Tuning: {{ fretboard.tuning }} - Key: {{ key }}</h2>
         <ng-guitar-fretboard [fretboard]="fretboard"> </ng-guitar-fretboard>
       </section>
 
       <section fxFlex="grow">
-        <h2>Totally Random Etude: Tick Count {{ tickCount }} - Beat {{ currentBeat }}</h2>
+        <h2>
+          Totally Random Etude: Tick Count {{ tickCount }} - Beat
+          {{ currentBeat }}
+        </h2>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
           style="height: 100%"
@@ -92,7 +95,19 @@
     fxFlex="nogrow"
     fxLayoutAlign="space-between center"
   >
-    <section>Copyright © 2022 T.D.Morris.</section>
-    <section>v{{ version }}</section>
+    <section>
+      <small>
+        © 2022
+        <a
+          title="View On GitHub"
+          aria-label="Link To GitHub Repo For Project"
+          href="https://github.com/TimDMorris/ng-guitar"
+          >TimDMorris</a
+        >.</small
+      >
+    </section>
+    <section>
+      <small>v{{ version }}</small>
+    </section>
   </mat-toolbar>
 </div>

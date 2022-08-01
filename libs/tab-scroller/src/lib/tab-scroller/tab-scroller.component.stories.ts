@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
+import { TabScrollerModule } from '../tab-scroller.module';
 import { TabScrollerComponent } from './tab-scroller.component';
 
 export default {
@@ -6,7 +8,7 @@ export default {
   component: TabScrollerComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [CommonModule, TabScrollerModule],
     }),
   ],
 } as Meta<TabScrollerComponent>;

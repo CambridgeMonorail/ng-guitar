@@ -1,5 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+/**
+ * Displays a Fret
+ *
+ * @export
+ * @class FretComponent
+ */
 @Component({
   selector: 'ng-guitar-fret',
   templateUrl: './fret.component.html',
@@ -7,5 +13,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FretComponent {
+  /**
+   * Notes on the Fret
+   *
+   * @type {string[]}
+   * @memberof FretComponent
+   */
   @Input() notes: string[] = [];
 }
