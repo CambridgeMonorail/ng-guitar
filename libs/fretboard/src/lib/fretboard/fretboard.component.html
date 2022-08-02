@@ -13,7 +13,10 @@
         *ngFor="let fret of string.notes; let i = index"
         [ngClass]="{ nut: i === 0 }"
       >
-        <div class="note-circle fret-content">
+        <div
+          class="fret-content"
+          [ngClass]="{ notecircle: fret.inKey === true }"
+        >
           {{ fret.note }}
         </div>
       </td>

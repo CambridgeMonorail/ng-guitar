@@ -1,20 +1,15 @@
+import { Measure } from './../model/measure';
 import {
   animate,
   animateChild,
+  query,
   stagger,
   style,
   transition,
   trigger,
-  query,
 } from '@angular/animations';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  NgZone,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, Input, NgZone } from '@angular/core';
+import { Notes } from '../model/notes';
 
 /**
  * Display Scrolling Tabs
@@ -49,10 +44,8 @@ import {
   ],
 })
 export class TabScrollerComponent implements AfterViewInit {
-  counter = 5;
-  list = [1, 2, 3, 4];
-
-  notesList: string[][] = [];
+  private counter = 5;
+  private list = [1, 2, 3, 4];
 
   private mainContext!: CanvasRenderingContext2D;
 
@@ -60,6 +53,7 @@ export class TabScrollerComponent implements AfterViewInit {
 
   private isRunning = false;
   private tickCount = 0;
+  private numberOfStrings = 6;
   private widthToHeightRatio = 9.312;
   private width = 300;
   private height = 300;
@@ -72,7 +66,8 @@ export class TabScrollerComponent implements AfterViewInit {
   private noteHeight = 0;
   private noteWidth = 56;
 
-  _tuning = ['E', 'B', 'G', 'D', 'A', 'E'];
+  _notesList: Notes[] = [];
+  _tuning: Notes = { notes: ['E', 'B', 'G', 'D', 'A', 'E'] };
 
   /**
    * Sets tab scrolling state
@@ -122,7 +117,11 @@ export class TabScrollerComponent implements AfterViewInit {
    * @memberof TabScrollerComponent
    */
   @Input() set tuning(value: string[]) {
-    this._tuning = value;
+    this._tuning = { notes: value };
+  }
+
+  @Input() set Measure(value: Measure) {
+    this.addMeasure(value);
   }
 
   constructor(private ngZone: NgZone) {}
@@ -134,6 +133,10 @@ export class TabScrollerComponent implements AfterViewInit {
     this.noteWidth = this.getNoteWidth();
     this.getVelocity();
     this.getPixelsPerMillisecond();
+  }
+
+  addMeasure(value: Measure) {
+    this.add(value.beats);
   }
 
   getPixelsPerMillisecond() {
@@ -153,7 +156,7 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   getNoteHeight(): number {
-    const noteHeight = this.height / (this._tuning.length + 1) - 2;
+    const noteHeight = this.height / (this.numberOfStrings + 1) - 2;
     return noteHeight;
   }
 
@@ -168,12 +171,20 @@ export class TabScrollerComponent implements AfterViewInit {
 
     //setupcount in
     const resolution = 8;
+    const countInNotes: Notes[] = [];
     for (let i = 0; i < resolution; i++) {
-      this.add(['', '', '', '', '', '']);
+      const countIn: Notes = {
+        bar: (i + 1) % 4 === 0,
+        notes: ['', '', '', '', '', ''],
+      };
+      countInNotes.push(countIn);
     }
+    this.add(countInNotes);
+
     const backlog = 16;
     for (let i = 0; i < backlog; i++) {
-      this.getNextNote(false);
+      const bar = (i + 1) % 4 === 0;
+      this.getNextNote(bar);
     }
   }
 
@@ -185,7 +196,7 @@ export class TabScrollerComponent implements AfterViewInit {
       this.getNextNote(startOfBar);
       this.lastBeat = this._beat;
 
-      if (this.notesList.length > 24) {
+      if (this._notesList.length > 24) {
         this.remove(0);
       }
     }
@@ -207,7 +218,9 @@ export class TabScrollerComponent implements AfterViewInit {
       }
     }
 
-    this.add(notesToAdd);
+    const notes: Notes[] = [{ notes: notesToAdd, bar: startOfBar }];
+
+    this.add(notes);
   }
 
   private getValidNote() {
@@ -225,22 +238,19 @@ export class TabScrollerComponent implements AfterViewInit {
   private stop(): void {
     this.isRunning = false;
     cancelAnimationFrame(this.id);
-    this.notesList = [];
+    this._notesList = [];
   }
 
   private getHeight(): number {
     return this.width / this.widthToHeightRatio;
   }
 
-  // New stuff start
   remove(index: number) {
-    if (!this.notesList.length) return;
-    this.notesList.splice(index, 1);
+    if (!this._notesList.length) return;
+    this._notesList.splice(index, 1);
   }
 
-  add(value: string[]) {
-    this.notesList.push(value);
+  add(value: Notes[]) {
+    this._notesList.push(...value);
   }
-
-  // New stuff end
 }

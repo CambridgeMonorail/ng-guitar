@@ -14,7 +14,7 @@ export default {
 
 const fretboard: Fretboard = {
   key: 'C',
-  tuning: ['E', 'A', 'D', 'G', 'B', 'E'],
+  tuning: ['E', 'B', 'G', 'D', 'A', 'E'],
   strings: [
     {
       note: 'E',
