@@ -69,6 +69,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Displays a Fretted Note</p>
+
+    </p>
 
 
 
@@ -172,9 +179,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">libs/tab-scroller/src/lib/note/note.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/tab-scroller/src/lib/note/note.component.ts:21</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Note Name</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -187,13 +200,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnInit,
-} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Input } from &#x27;@angular/core&#x27;;
 
+/**
+ * Displays a Fretted Note
+ *
+ * @export
+ * @class NoteComponent
+ */
 @Component({
   selector: &#x27;ng-guitar-note&#x27;,
   templateUrl: &#x27;./note.component.html&#x27;,
@@ -201,6 +215,11 @@
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NoteComponent {
+  /**
+   * Note Name
+   *
+   * @memberof NoteComponent
+   */
   @Input() note &#x3D; &#x27;&#x27;;
 }
 </code></pre>

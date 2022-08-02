@@ -189,6 +189,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <li class="link">
                                 <a href="interfaces/FretboardString.html" data-type="entity-link" >FretboardString</a>
                             </li>
+                            <li class="link">
+                                <a href="interfaces/Measure.html" data-type="entity-link" >Measure</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Notes.html" data-type="entity-link" >Notes</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="chapter">
@@ -199,6 +205,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                            </li>
                             <li class="link">
                                 <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
