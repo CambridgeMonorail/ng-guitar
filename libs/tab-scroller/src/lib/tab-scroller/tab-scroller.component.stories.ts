@@ -23,5 +23,5 @@ Primary.args = {
   tick: 1,
   bpm: 60,
   beat: 1,
-  tuning: ['E', 'A', 'D', 'G', 'B', 'E'],
+  tuning: ['E', 'B', 'G', 'D', 'A', 'E'],
 };

@@ -1,3 +1,4 @@
+import { Notes } from './../model/notes';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 /**
@@ -16,8 +17,8 @@ export class FretComponent {
   /**
    * Notes on the Fret
    *
-   * @type {string[]}
+   * @type {Notes[]}
    * @memberof FretComponent
    */
-  @Input() notes: string[] = [];
+  @Input() notes: Notes = {} as Notes;
 }

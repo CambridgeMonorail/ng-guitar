@@ -31,6 +31,8 @@ export class ShellComponent {
 
   public key = 'C';
 
+  public notesInKey = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private fretboardService: FretboardService,
@@ -66,7 +68,7 @@ export class ShellComponent {
           note: note.note,
           fret: index,
           active: false,
-          inKey: false,
+          inKey: this.notesInKey.includes(note.note),
         });
       });
       newFretboard.strings.push(newString);

@@ -38,7 +38,7 @@ export class FretboardService {
    * @type {string[]}
    * @memberof FretboardService
    */
-  public tuning: string[] = ['E', 'A', 'D', 'G', 'B', 'E'];
+  public tuning: string[] = ['E', 'B', 'G', 'D', 'A', 'E'];
 
   /**
    * the number of frets
