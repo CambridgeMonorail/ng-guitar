@@ -1,3 +1,4 @@
+import { Notes } from './../../../../../libs/tab-scroller/src/lib/model/notes';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { ProgressionService } from '@ng-guitar/etude';
@@ -19,6 +20,7 @@ export class ShellComponent {
   public running = false;
   public tickCount = 0;
   public currentBeat = 0;
+  public notes: Notes = { notes: ['', '', '', '', '', ''] };
 
   public fretboard: Fretboard;
 
@@ -39,7 +41,6 @@ export class ShellComponent {
     private progressionService: ProgressionService
   ) {
     this.fretboard = this.setupFretboard();
-
     this.fretboard.strings.forEach((string) => {
       string.notes.forEach((note) => {
         note.active = false;
@@ -91,9 +92,8 @@ export class ShellComponent {
   }
 
   beat(val: number): void {
+    this.notes = this.progressionService.getNextNotes(val);
     this.currentBeat = val;
-    const next = this.progressionService.getNextNote(1);
-    console.log('next: ', next);
   }
 
   private setState(running: boolean) {
