@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FretboardString } from '@ng-guitar/fretboard';
+import { FretboardNote, FretboardString } from '@ng-guitar/fretboard';
 import { Notes } from '@ng-guitar/tab-scroller';
 
 /**
@@ -29,7 +29,21 @@ export class ProgressionService {
     'G',
     'G#',
   ];
+
   private major: number[] = [1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1];
+
+  // TO DO: these should be dynamic driven by key
+  private cagedShapes: number[][] = [
+    [0, 3],
+    [2, 5],
+    [4, 8],
+    [7, 10],
+    [9, 13],
+    [12, 15],
+    [14, 17],
+    [16, 20],
+    [19, 22],
+  ];
 
   private previousString: number | undefined;
   private previousFret: number | undefined;
@@ -67,7 +81,7 @@ export class ProgressionService {
 
   private getValidNote() {
     const string: number = this.getString();
-    const fret: number = this.getFret();
+    const fret: number = this.getFret(string);
 
     this.setPreviousState(string, fret);
     return { string, fret };
@@ -88,7 +102,7 @@ export class ProgressionService {
         weights: stringWeights,
       });
     }
-    this.previousString = string;
+
     return string;
   }
 
@@ -102,32 +116,133 @@ export class ProgressionService {
 
   private setupStringWeights(previousString: number): number[] {
     const stringWeights: number[] = [];
+
+    // Proximity Weights
+    const weightMultiplier = this.strings.length / 100;
     for (let i = 0; i < this.strings.length; i++) {
-      // console.log('string', i);
       const diff = Math.abs(previousString - i);
-      // console.log('diff',diff);
       const inverse = this.strings.length - diff;
-      // console.log('sized',inverse);
-      const weightMultiplier = this.strings.length / 100;
-      // console.log('weightMultiplier', weightMultiplier);
       const weight = inverse * weightMultiplier;
-      // console.log('weight', weight);
       stringWeights.push(weight);
     }
-
-    // let validate = 0;
-    // for(let i = 0; i < stringWeights.length; i++) {
-    //   validate += stringWeights[i];
-    // }
-
-    // console.log('validate', validate);
 
     return stringWeights;
   }
 
-  getFret(): number {
-    const fret: number = this.getRandomIntegerInRange(0, 24);
+  getFret(string: number): number {
+    let fret = 0;
+
+    const stringDetails: FretboardString = this.strings[string];
+    const notes: FretboardNote[] = stringDetails.notes;
+
+    if (typeof this.previousFret === 'undefined') {
+      //TO DO: If no previous fret then get first root on string
+      fret = this.getRandomIntegerInRange(0, 24);
+    } else {
+      const fretWeights: number[] = this.setupFretWeights(notes);
+      const chooseFrom = this.getNumericArrayOfFretNumbers(notes);
+      fret = this.getWeightedRandom({
+        items: chooseFrom,
+        weights: fretWeights,
+      });
+    }
+
     return fret;
+  }
+
+  private setupFretWeights(notes: FretboardNote[]): number[] {
+    const fretWeights: number[] = [];
+    const previousFret = this.previousFret || 0;
+    const weightMultiplier = notes.length / 100;
+
+    // Proximity Weights
+    this.addFretProximityWeights(
+      notes,
+      previousFret,
+      weightMultiplier,
+      fretWeights
+    );
+
+    // Add On Caged Shape Weights
+    this.addCagedShapeWeights(notes, weightMultiplier, fretWeights);
+
+    // Add on Chord Weights (if applicable) i.e. playing the changes
+
+    // If first note of bar then add increased chord weight
+
+    return fretWeights;
+  }
+
+  private addCagedShapeWeights(
+    notes: FretboardNote[],
+    weightMultiplier: number,
+    fretWeights: number[]
+  ) {
+    const previousFret = this.previousFret || 0;
+
+    console.log('previousFret', previousFret);
+    const relevantShapes = this.cagedShapes.filter((cagedShape) => {
+      let relevant = false;
+      if (previousFret >= cagedShape[0] && previousFret <= cagedShape[1]) {
+        relevant = true;
+      }
+      return relevant;
+    });
+    if (relevantShapes.length > 0) {
+      const minFret = relevantShapes
+        .map((cagedShape) => cagedShape[0])
+        .reduce((a, b) => Math.min(a, b));
+
+      console.log('minFret', minFret);
+
+      const maxFret = relevantShapes
+        .map((cagedShape) => cagedShape[1])
+        .reduce((a, b) => Math.max(a, b));
+      console.log('minFret', maxFret);
+
+      for (let i = minFret; i <= maxFret; i++) {
+        let weight: number;
+
+        if (notes[i].inKey === true) {
+          const diff = Math.abs(previousFret - i);
+          const inverse = notes.length - diff;
+          weight = inverse * weightMultiplier;
+        } else {
+          weight = 0;
+        }
+        fretWeights[i] += weight;
+      }
+    }
+  }
+
+  private addFretProximityWeights(
+    notes: FretboardNote[],
+    previousFret: number,
+    weightMultiplier: number,
+    fretWeights: number[]
+  ) {
+    for (let i = 0; i < notes.length; i++) {
+      let weight: number;
+
+      if (notes[i].inKey === true) {
+        const diff = Math.abs(previousFret - i);
+        const inverse = notes.length - diff;
+        const stretchAdjustment =
+          diff > 1 && diff <= 4 ? diff * inverse : diff / inverse;
+        weight = inverse * weightMultiplier + stretchAdjustment;
+      } else {
+        weight = 0;
+      }
+      fretWeights.push(weight);
+    }
+  }
+
+  getNumericArrayOfFretNumbers(notes: FretboardNote[]): number[] {
+    const fretNumbers: number[] = [];
+    for (let i = 0; i < notes.length; i++) {
+      fretNumbers.push(i);
+    }
+    return fretNumbers;
   }
 
   private setPreviousState(nextString: number, nextFret: number) {
@@ -172,44 +287,35 @@ export class ProgressionService {
     items: number[];
     weights: number[];
   }): number {
-    let item = 0;
-    let index = 0;
-
-    if (items.length !== weights.length) {
-      throw new Error('Items and weights must be of the same size');
+    // First, we loop the main itemsset to count up the total weight.
+    // We're starting the counter at one because the upper boundary
+    // of Math.random() is exclusive.
+    let total = 0;
+    for (let i = 0; i < items.length; ++i) {
+      total += weights[i];
     }
 
-    if (!items.length) {
-      throw new Error('Items must not be empty');
-    }
+    // Total in hand, we can now pick a random value akin to our
+    // random index from before.
+    const threshold = Math.random() * total;
 
-    // Preparing the cumulative weights array.
-    // For example:
-    // - weights = [1, 4, 3]
-    // - cumulativeWeights = [1, 5, 8]
-    const cumulativeWeights: number[] = [];
-    for (let i = 0; i < weights.length; i += 1) {
-      cumulativeWeights[i] = weights[i] + (cumulativeWeights[i - 1] || 0);
-    }
+    // Now we just need to loop through the main items one more time
+    // until we discover which value would live within this
+    // particular threshold. We need to keep a running count of
+    // weights as we go, so let's just reuse the "total" variable
+    // since it was already declared.
+    total = 0;
+    for (let i = 0; i < items.length - 1; ++i) {
+      // Add the weight to our running total.
+      total += weights[i];
 
-    // Getting the random number in a range of [0...sum(weights)]
-    // For example:
-    // - weights = [1, 4, 3]
-    // - maxCumulativeWeight = 8
-    // - range for the random number is [0...8]
-    const maxCumulativeWeight = cumulativeWeights[cumulativeWeights.length - 1];
-    const randomNumber = maxCumulativeWeight * Math.random();
-
-    // Picking the random item based on its weight.
-    // The items with higher weight will be picked more often.
-    for (let itemIndex = 0; itemIndex < items.length; itemIndex += 1) {
-      if (cumulativeWeights[itemIndex] >= randomNumber) {
-        item = items[itemIndex];
-        index = itemIndex;
+      // If this value falls within the threshold, we're done!
+      if (total >= threshold) {
+        return items[i];
       }
     }
 
-    console.log(index);
-    return item;
+    // Wouldn't you know it, we needed the very last entry!
+    return items[items.length - 1];
   }
 }
