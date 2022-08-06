@@ -1,18 +1,16 @@
 <section class="metronome-wrapper" fxLayout="column">
-  <h3>
+  <h5>
     Metronome Setup -
     <span *ngIf="this.isSupported"
       ><em>Yeah, your browser is supported.</em></span
     >
-  </h3>
-
-  <br />
+  </h5>
 
   <span
     class="metronome-parameters"
     fxLayout="row"
     fxLayoutAlign="start center"
-    fxLayoutGap="1.5rem"
+    fxLayoutGap="1rem"
   >
     <section
       class="tempo"
@@ -68,11 +66,11 @@
     </button>
   </span>
 
-  <div fxLayout="column">
+  <!-- <div fxLayout="column">
     <section class="debug-stuff">
       <h4>Debug Stuff</h4>
       <span>Worker Message: {{ workerMessage }}</span>
       <br />
     </section>
-  </div>
+  </div> -->
 </section>
