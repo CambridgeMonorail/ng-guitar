@@ -68,18 +68,18 @@ export class TabScrollerComponent implements AfterViewInit {
 
   private _beat = 0;
   private _bpm = 60;
-  private _countIn = 2;
+
   private _resolution = 4;
   private lastBeat = 0;
 
   private noteHeight = 0;
   private noteWidth = 56;
 
-  private possibleBeats = 0;
-  private isPrimed = false;
-
   _notesList: Notes[] = [];
   _tuning: Notes = { notes: ['E', 'B', 'G', 'D', 'A', 'E'] };
+
+  public capacity = 0;
+  public currentBeats = 0;
 
   /**
    * Sets tab scrolling state
@@ -120,6 +120,7 @@ export class TabScrollerComponent implements AfterViewInit {
    * @memberof TabScrollerComponent
    */
   @Input() set beat(value: number) {
+    console.log('beat', value);
     this._beat = value;
   }
 
@@ -140,9 +141,8 @@ export class TabScrollerComponent implements AfterViewInit {
   @Input() set notes(value: Notes) {
     const newNote: Notes = structuredClone(value);
     this._notesList.push(newNote);
+    this.currentBeats = this._notesList.length;
   }
-
-  @Output() primed = new EventEmitter();
 
   constructor(private ngZone: NgZone) {}
 
@@ -154,14 +154,14 @@ export class TabScrollerComponent implements AfterViewInit {
     this.getVelocity();
     this.getPixelsPerMillisecond();
 
-    this.possibleBeats = this.getPossibleBeats();
+    this.capacity = this.getPossibleBeats();
   }
 
   getPossibleBeats(): number {
     const totalAvailableBeats = (this.width - 90) / this.noteWidth;
     const possibleBars = Math.floor(totalAvailableBeats / this._resolution);
-    const possibleBeats = possibleBars * this._resolution;
-    return possibleBeats;
+    const capacity = possibleBars * this._resolution;
+    return capacity;
   }
 
   addMeasure(value: Measure) {
@@ -195,39 +195,20 @@ export class TabScrollerComponent implements AfterViewInit {
 
   private start(): void {
     this.isRunning = true;
-    this.setupCountIn();
-  }
-
-  setupCountIn() {
-    this._notesList = [];
-
-    for (let bar = 0; bar < this._countIn; bar++) {
-      for (let beat = 0; beat < this._resolution; beat++) {
-        const bar = beat === 0 ? true : false;
-        const newNotes: Notes = {
-          bar: bar,
-          notes: ['', '', '', '', '', ''],
-        };
-        this._notesList.push(structuredClone(newNotes));
-      }
-    }
   }
 
   private click(): void {
     if (this._beat !== this.lastBeat) {
-      // TODO: This should be dynamic dependent on rendered size
-      if (this._notesList.length > this.possibleBeats) {
-        this.remove(0);
-      }
+      console.log('beat', this._beat);
+      this.lastBeat = this._beat;
+      this.remove(0);
+      this.currentBeats = this._notesList.length;
     }
-
-    this.id = requestAnimationFrame(() => this.click);
-    this.mainContext.font = '30px serif';
   }
 
   private stop(): void {
+    this._notesList = [];
     this.isRunning = false;
-    this.isPrimed = false;
     cancelAnimationFrame(this.id);
   }
 
@@ -242,12 +223,6 @@ export class TabScrollerComponent implements AfterViewInit {
 
   add(value: Notes[]) {
     this._notesList.push(...value);
-
-    if (!this.isPrimed) {
-      if (this._notesList.length === this.possibleBeats) {
-        this.primed.emit();
-        this.isPrimed = true;
-      }
-    }
+    this.currentBeats = this._notesList.length;
   }
 }

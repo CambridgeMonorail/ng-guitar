@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EtudeComponent } from './etude/etude.component';
-import { ProgressionService } from './progression.service';
+import { ProgressionService } from './etude/utils/progression.service';
 
 @NgModule({
   imports: [CommonModule],
