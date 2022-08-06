@@ -55,7 +55,6 @@ export class MetronomeComponent {
     this.noteResolutions = this.getNoteResolutions();
 
     if (typeof Worker !== 'undefined') {
-      console.log('Web Workers are supported!');
       this.timerWorker = new Worker(
         new URL('../metrenome.worker.ts', import.meta.url)
       );
@@ -107,9 +106,6 @@ export class MetronomeComponent {
   }
 
   scheduleNote(beatNumber: number, time: number): void {
-    // console.log(beatNumber);
-    // console.log(time);
-
     // push the note on the queue, even if we're not playing.
     this.notesInQueue.push({ note: beatNumber, time: time });
 
@@ -149,8 +145,6 @@ export class MetronomeComponent {
   }
 
   nextNote(): void {
-    console.log('nextNote');
-
     // Advance current note and time by a 16th note...
     const secondsPerBeat = 60.0 / this.tempo; // Notice this picks up the CURRENT
     // tempo value to calculate beat length.
@@ -163,9 +157,7 @@ export class MetronomeComponent {
   }
 
   public async beep(): Promise<void> {
-    console.log('beep');
     if (this.audioContext.state === 'suspended') {
-      console.log('suspended');
       await this.audioContext.resume();
     }
 
@@ -198,7 +190,6 @@ export class MetronomeComponent {
   play() {
     // TODO: show loader
     this.unlock().then(() => {
-      console.log('unlock');
       // TODO:hide loader
 
       this.isPlaying = !this.isPlaying;

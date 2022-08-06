@@ -8,7 +8,14 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { AfterViewInit, Component, Input, NgZone } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  NgZone,
+  Output,
+} from '@angular/core';
 import { Notes } from '../model/notes';
 
 /**
@@ -61,6 +68,8 @@ export class TabScrollerComponent implements AfterViewInit {
 
   private _beat = 0;
   private _bpm = 60;
+
+  private _resolution = 4;
   private lastBeat = 0;
 
   private noteHeight = 0;
@@ -68,6 +77,9 @@ export class TabScrollerComponent implements AfterViewInit {
 
   _notesList: Notes[] = [];
   _tuning: Notes = { notes: ['E', 'B', 'G', 'D', 'A', 'E'] };
+
+  public capacity = 0;
+  public currentBeats = 0;
 
   /**
    * Sets tab scrolling state
@@ -108,6 +120,7 @@ export class TabScrollerComponent implements AfterViewInit {
    * @memberof TabScrollerComponent
    */
   @Input() set beat(value: number) {
+    console.log('beat', value);
     this._beat = value;
   }
 
@@ -120,8 +133,15 @@ export class TabScrollerComponent implements AfterViewInit {
     this._tuning = { notes: value };
   }
 
-  @Input() set Measure(value: Measure) {
+  @Input() set measure(value: Measure) {
     this.addMeasure(value);
+  }
+
+  // TODO: This should really surface the noteslist refactor
+  @Input() set notes(value: Notes) {
+    const newNote: Notes = structuredClone(value);
+    this._notesList.push(newNote);
+    this.currentBeats = this._notesList.length;
   }
 
   constructor(private ngZone: NgZone) {}
@@ -133,6 +153,15 @@ export class TabScrollerComponent implements AfterViewInit {
     this.noteWidth = this.getNoteWidth();
     this.getVelocity();
     this.getPixelsPerMillisecond();
+
+    this.capacity = this.getPossibleBeats();
+  }
+
+  getPossibleBeats(): number {
+    const totalAvailableBeats = (this.width - 90) / this.noteWidth;
+    const possibleBars = Math.floor(totalAvailableBeats / this._resolution);
+    const capacity = possibleBars * this._resolution;
+    return capacity;
   }
 
   addMeasure(value: Measure) {
@@ -161,84 +190,26 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   getNoteWidth(): number {
-    //56
-    const noteWidth = this.noteHeight + 30;
-    return noteWidth;
+    return 62;
   }
 
   private start(): void {
     this.isRunning = true;
-
-    //setupcount in
-    const resolution = 8;
-    const countInNotes: Notes[] = [];
-    for (let i = 0; i < resolution; i++) {
-      const countIn: Notes = {
-        bar: (i + 1) % 4 === 0,
-        notes: ['', '', '', '', '', ''],
-      };
-      countInNotes.push(countIn);
-    }
-    this.add(countInNotes);
-
-    const backlog = 16;
-    for (let i = 0; i < backlog; i++) {
-      const bar = (i + 1) % 4 === 0;
-      this.getNextNote(bar);
-    }
   }
 
   private click(): void {
-    let startOfBar = false;
-
     if (this._beat !== this.lastBeat) {
-      startOfBar = this._beat < this.lastBeat;
-      this.getNextNote(startOfBar);
+      console.log('beat', this._beat);
       this.lastBeat = this._beat;
-
-      if (this._notesList.length > 24) {
-        this.remove(0);
-      }
+      this.remove(0);
+      this.currentBeats = this._notesList.length;
     }
-
-    this.id = requestAnimationFrame(() => this.click);
-    this.mainContext.font = '30px serif';
-  }
-
-  getNextNote(startOfBar: boolean) {
-    const { string, fret }: { string: number; fret: number } =
-      this.getValidNote();
-
-    const notesToAdd: string[] = [];
-    for (let i = 0; i < 6; i++) {
-      if (string === i) {
-        notesToAdd.push(fret.toString());
-      } else {
-        notesToAdd.push('');
-      }
-    }
-
-    const notes: Notes[] = [{ notes: notesToAdd, bar: startOfBar }];
-
-    this.add(notes);
-  }
-
-  private getValidNote() {
-    const string: number = this.getRandomIntegerInRange(0, 5);
-    const fret: number = this.getRandomIntegerInRange(0, 24);
-    return { string, fret };
-  }
-
-  getRandomIntegerInRange(min: number, max: number): number {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   private stop(): void {
+    this._notesList = [];
     this.isRunning = false;
     cancelAnimationFrame(this.id);
-    this._notesList = [];
   }
 
   private getHeight(): number {
@@ -252,5 +223,6 @@ export class TabScrollerComponent implements AfterViewInit {
 
   add(value: Notes[]) {
     this._notesList.push(...value);
+    this.currentBeats = this._notesList.length;
   }
 }

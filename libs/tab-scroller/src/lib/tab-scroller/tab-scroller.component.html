@@ -6,7 +6,7 @@
     <div @items class="neck" *ngFor="let item of _notesList; let i = index">
       <ng-guitar-fret
         [notes]="item"
-        [ngClass]="{ playhead: i === 0, bar: i % 4 === 0 }"
+        [ngClass]="{ playhead: i === 0 }"
       ></ng-guitar-fret>
     </div>
   </div>
