@@ -1,0 +1,1 @@
+(()=>{let e,s=500;addEventListener("message",({data:t})=>{"start"==t?e=setInterval(function(){postMessage("tick")},s):t.interval?(s=t.interval,e&&(clearInterval(e),e=setInterval(function(){postMessage("tick")},s))):"stop"==t&&(clearInterval(e),e=null)})})();
