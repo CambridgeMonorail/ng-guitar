@@ -50,26 +50,38 @@
     <mat-sidenav-content
       fxLayout="column"
       fxLayoutAlign="start stretch"
-      fxLayoutGap="2rem"
+      fxLayoutGap="0.5rem"
     >
-      <section style="padding: 10px" fxFlex>
+      <section style="padding: 2px" fxFlex>
         <h1>Guitar Improv Practice Trainer</h1>
-        <div style="margin: 20px">
+      </section>
+
+      <section style="padding: 2px" fxHide fxShow.gt-s>
+        <div style="margin: 0px 10px" class="intro">
           This is my playground project to experiment with web technologies and
           tools related to angular. I like guitar, I write angular, this is
           where I'm going to awkwardly glue both together.
         </div>
       </section>
+
+      <section class="controls" style="padding: 10px" fxFlex>
+        <ng-guitar-metronome
+          (running)="metronomeStateChanged($event)"
+          (tick)="ticked($event)"
+          (beat)="beat($event)"
+        ></ng-guitar-metronome>
+      </section>
+
       <section fxFlex>
-        <h2>Tuning: {{ fretboard.tuning }} - Key: {{ key }}</h2>
+        <h3>Tuning: {{ fretboard.tuning }} - Key: {{ key }}</h3>
         <ng-guitar-fretboard [fretboard]="fretboard"> </ng-guitar-fretboard>
       </section>
 
       <section fxFlex="grow">
-        <h2>
+        <h3>
           Totally Random Etude: Beat
           {{ currentBeat }}
-        </h2>
+        </h3>
         <!-- <ng-guitar-etude> </ng-guitar-etude> -->
         <ng-guitar-tab-scroller
           #tabScroller
@@ -81,15 +93,6 @@
           [notes]="notes"
           [measure]="measure"
         ></ng-guitar-tab-scroller>
-      </section>
-
-      <section style="padding: 10px" fxFlex>
-        <div>Runng: {{ running }}</div>
-        <ng-guitar-metronome
-          (running)="metronomeStateChanged($event)"
-          (tick)="ticked($event)"
-          (beat)="beat($event)"
-        ></ng-guitar-metronome>
       </section>
     </mat-sidenav-content>
   </mat-sidenav-container>
