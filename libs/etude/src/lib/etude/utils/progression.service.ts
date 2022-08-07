@@ -51,6 +51,7 @@ export class ProgressionService {
   private _countIn = 2;
   private _currentBar = 0;
   private _resolution = 4;
+  private _frets = 22;
   private _startOfBar = false;
 
   public key = 'C';
@@ -122,7 +123,10 @@ export class ProgressionService {
     for (let i = 0; i < this.strings.length; i++) {
       const diff = Math.abs(previousString - i);
       const inverse = this.strings.length - diff;
-      const weight = inverse * weightMultiplier;
+      let weight = inverse * weightMultiplier;
+      if (diff < 2) {
+        weight = weight * 2;
+      }
       stringWeights.push(weight);
     }
 
@@ -137,7 +141,7 @@ export class ProgressionService {
 
     if (typeof this.previousFret === 'undefined') {
       //TO DO: If no previous fret then get first root on string
-      fret = this.getRandomIntegerInRange(0, 24);
+      fret = this.getRandomIntegerInRange(0, this._frets);
     } else {
       const fretWeights: number[] = this.setupFretWeights(notes);
       const chooseFrom = this.getNumericArrayOfFretNumbers(notes);
@@ -210,7 +214,7 @@ export class ProgressionService {
         } else {
           weight = 0;
         }
-        fretWeights[i] += weight;
+        fretWeights[i] += weight * 1.5;
       }
     }
   }
@@ -225,11 +229,15 @@ export class ProgressionService {
       let weight: number;
 
       if (notes[i].inKey === true) {
+        let stretchAdjustedWeight = weightMultiplier;
         const diff = Math.abs(previousFret - i);
         const inverse = notes.length - diff;
-        const stretchAdjustment =
-          diff > 1 && diff <= 4 ? diff * inverse : diff / inverse;
-        weight = inverse * weightMultiplier + stretchAdjustment;
+        if (diff < 1 || diff > 3) {
+          stretchAdjustedWeight = weightMultiplier / 2;
+        } else {
+          stretchAdjustedWeight = weightMultiplier * 3;
+        }
+        weight = inverse * stretchAdjustedWeight;
       } else {
         weight = 0;
       }

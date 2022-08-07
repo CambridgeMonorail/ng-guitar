@@ -150,7 +150,8 @@ export class ShellComponent {
       if (this.tabScroller) {
         //TODO: This needs validation - check off by one error
         let barBeat = 0;
-        for (let i = 0; i < this.tabScroller?.capacity; i++) {
+        const startBeat = this._countIn * this._resolution;
+        for (let i = startBeat; i < this.tabScroller?.capacity; i++) {
           beatsToAdd.push(this.progressionService.getNextNotes(barBeat));
           barBeat++;
           if (barBeat >= this._resolution) {
