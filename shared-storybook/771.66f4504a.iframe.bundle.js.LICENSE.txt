@@ -76,6 +76,12 @@ PERFORMANCE OF THIS SOFTWARE.
  * License: MIT
  */
 
+/**
+ * @license Angular v14.1.1
+ * (c) 2010-2022 Google LLC. https://angular.io/
+ * License: MIT
+ */
+
 /** @license React v16.14.0
  * react.production.min.js
  *
