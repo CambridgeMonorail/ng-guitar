@@ -1,5 +1,4 @@
-import { TabScrollerComponent } from './../../../../../libs/tab-scroller/src/lib/tab-scroller/tab-scroller.component';
-import { Notes } from './../../../../../libs/tab-scroller/src/lib/model/notes';
+import { Notes, TabScrollerComponent } from '@ng-guitar/tab-scroller';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, ViewChild } from '@angular/core';
 import { ProgressionService } from '@ng-guitar/etude';
