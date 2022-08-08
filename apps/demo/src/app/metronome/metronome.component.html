@@ -9,14 +9,17 @@
   <span
     class="metronome-parameters"
     fxLayout="row"
+    fxLayout.lt-sm="column"
     fxLayoutAlign="start center"
     fxLayoutGap="1rem"
   >
     <section
       class="tempo"
       fxLayout="row"
+      fxLayout.lt-sm="column"
       fxLayoutAlign="space-around center"
       fxLayoutGap="0.5rem"
+      fxFlex
     >
       <span class="mat-caption">60</span>
       <mat-slider
@@ -33,11 +36,13 @@
       <span class="mat-caption">240</span>
     </section>
 
-    <mat-form-field class="tempo-number">
-      <mat-label>Tempo: </mat-label>
-      <input matInput placeholder="60" [value]="tempo" />
-      <span matSuffix>bpm</span>
-    </mat-form-field>
+    <section fxFlex>
+      <mat-form-field class="tempo-number">
+        <mat-label>Tempo: </mat-label>
+        <input matInput placeholder="60" [value]="tempo" />
+        <span matSuffix>bpm</span>
+      </mat-form-field>
+    </section>
 
     <!-- <label for="first-name">Tempo: </label>
     <input id="tempo" type="number" /> -->
