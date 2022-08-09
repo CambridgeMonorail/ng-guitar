@@ -16,10 +16,10 @@
     <section
       class="tempo"
       fxLayout="row"
-      fxLayout.lt-sm="column"
-      fxLayoutAlign="space-around center"
+      fxLayout.xs="column"
+      fxLayoutAlign="center center"
       fxLayoutGap="0.5rem"
-      fxFlex
+      fxFlex="nogrow"
     >
       <span class="mat-caption">60</span>
       <mat-slider
@@ -36,7 +36,7 @@
       <span class="mat-caption">240</span>
     </section>
 
-    <section fxFlex>
+    <section fxFlex="nogrow">
       <mat-form-field class="tempo-number">
         <mat-label>Tempo: </mat-label>
         <input matInput placeholder="60" [value]="tempo" />
