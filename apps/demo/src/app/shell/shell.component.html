@@ -1,29 +1,27 @@
-<div class="shell-wrapper" fxLayout="column" fxLayoutAlign="start stretch">
-  <mat-toolbar class="mat-elevation-z1">
+<div class="shell-wrapper" fxLayout="column" fxLayoutAlign="start">
+  <mat-toolbar class="mat-elevation-z1" fxFlex>
     <button mat-icon-button id="menu" (click)="appDrawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="header"><strong>NG GUITAR DEMO</strong> </span>
+    <span class="header"><strong>NG GUITAR</strong> </span>
+
     <span class="toolbar-spacer"></span>
-    <span
-      ><a
-        mat-button
-        title="View On GitHub"
-        aria-label="Link To GitHub Repo For Project"
-        href="https://github.com/TimDMorris/ng-guitar"
-        ><img
-          alt="GitHub"
-          class="github-logo"
-          src="assets/icons/github.svg"
-        />GitHub</a
-      ></span
-    >
+
+    <a
+      mat-button
+      title="View On GitHub"
+      aria-label="Link To GitHub Repo For Project"
+      href="https://github.com/TimDMorris/ng-guitar"
+      ><img alt="GitHub" class="github-logo" src="assets/icons/github.svg" />
+      <span fxHide.lt-sm="true" fxShow>GitHub</span>
+    </a>
   </mat-toolbar>
-  <mat-sidenav-container class="sidenav-container" fxFlex="grow">
+
+  <mat-sidenav-container class="sidenav-container">
     <mat-sidenav
       #appDrawer
       rail-mode
-      opened="true"
+      opened="false"
       (openedChange)="openedChange(appDrawer.opened)"
     >
       <mat-nav-list class="dashboard">
@@ -47,6 +45,7 @@
         </a>
       </mat-nav-list>
     </mat-sidenav>
+
     <mat-sidenav-content
       fxLayout="column"
       fxLayoutAlign="start stretch"
@@ -82,7 +81,7 @@
           Totally Random Etude: Beat
           {{ currentBeat }}
         </h3>
-        <!-- <ng-guitar-etude> </ng-guitar-etude> -->
+
         <ng-guitar-tab-scroller
           #tabScroller
           style="height: 100%"
@@ -96,11 +95,8 @@
       </section>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  <mat-toolbar
-    color="primary"
-    fxFlex="nogrow"
-    fxLayoutAlign="space-between center"
-  >
+
+  <mat-toolbar color="primary" fxFlex fxLayoutAlign="space-between center">
     <section>
       <small>
         © 2022
