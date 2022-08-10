@@ -1,16 +1,11 @@
 :host {
-  height: inherit;
-  width: inherit;
 }
 
 .shell-wrapper {
-  height: 100%;
-  width: 100%;
 }
 
 mat-sidenav-container {
-  height: 100%;
-  width: 100%;
+  max-height: calc(100% - 6rem);
 }
 
 .sidenav {
@@ -33,6 +28,7 @@ mat-sidenav-container {
 
 .mat-toolbar {
   background-repeat: repeat repeat;
+  height: 3rem;
 }
 
 .toolbar-spacer {

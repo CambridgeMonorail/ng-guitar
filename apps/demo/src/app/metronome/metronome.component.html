@@ -1,8 +1,9 @@
 <section class="metronome-wrapper" fxLayout="column">
   <h5>
-    Metronome Setup -
     <span *ngIf="this.isSupported"
-      ><em>Yeah, your browser is supported.</em></span
+      ><em
+        ><small>Metronome Setup - Yeah, your browser is supported.</small></em
+      ></span
     >
   </h5>
 
@@ -21,7 +22,19 @@
       fxLayoutGap="0.5rem"
       fxFlex="nogrow"
     >
-      <span class="mat-caption">60</span>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Increase BPM"
+        (click)="decreaseBPM()"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Decrease BPM"
+          fontIcon="do_not_disturb_on"
+        ></mat-icon>
+      </button>
+
       <mat-slider
         class="tempo-slider"
         thumbLabel
@@ -33,13 +46,24 @@
         [(ngModel)]="tempo"
         aria-labelledby="metronome tempo value"
       ></mat-slider>
-      <span class="mat-caption">240</span>
+      <button
+        mat-icon-button
+        color="primary"
+        aria-label="Increase BPM"
+        (click)="increaseBPM()"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Increase BPM"
+          fontIcon="add_circle"
+        ></mat-icon>
+      </button>
     </section>
 
     <section fxFlex="nogrow">
       <mat-form-field class="tempo-number">
         <mat-label>Tempo: </mat-label>
-        <input matInput placeholder="60" [value]="tempo" />
+        <input matInput placeholder="60" [value]="tempo" type="number" />
         <span matSuffix>bpm</span>
       </mat-form-field>
     </section>
@@ -70,12 +94,4 @@
       {{ isPlaying === true ? 'Stop' : 'Start' }}
     </button>
   </span>
-
-  <!-- <div fxLayout="column">
-    <section class="debug-stuff">
-      <h4>Debug Stuff</h4>
-      <span>Worker Message: {{ workerMessage }}</span>
-      <br />
-    </section>
-  </div> -->
 </section>
