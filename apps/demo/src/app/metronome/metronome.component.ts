@@ -39,13 +39,20 @@ export class MetronomeComponent {
   @Output() running = new EventEmitter();
   @Output() tick = new EventEmitter();
 
-  changeMetronomeState() {
-    // TODO: Use EventEmitter with form value
+  changeMetronomeState(): void {
     this.play();
   }
 
-  changeResolution(value: number) {
+  changeResolution(value: number): void {
     this.noteResolution = value;
+  }
+
+  decreaseBPM(): void {
+    this.tempo -= 1;
+  }
+
+  increaseBPM(): void {
+    this.tempo += 1;
   }
 
   constructor(

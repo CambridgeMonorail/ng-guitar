@@ -1,5 +1,5 @@
-<div class="shell-wrapper" fxLayout="column" fxLayoutAlign="start">
-  <mat-toolbar class="mat-elevation-z1" fxFlex>
+<div class="shell-wrapper" fxLayout="column" fxLayoutAlign="start" fxFlexFill>
+  <mat-toolbar class="mat-elevation-z1" fxFlex="0 1 auto">
     <button mat-icon-button id="menu" (click)="appDrawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -17,7 +17,7 @@
     </a>
   </mat-toolbar>
 
-  <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-container class="sidenav-container" fxFlex="1 1 auto">
     <mat-sidenav
       #appDrawer
       rail-mode
@@ -51,11 +51,7 @@
       fxLayoutAlign="start stretch"
       fxLayoutGap="0.5rem"
     >
-      <section style="padding: 2px" fxFlex>
-        <h1>Guitar Improv Practice Trainer</h1>
-      </section>
-
-      <section style="padding: 2px" fxHide fxShow.gt-s>
+      <section style="padding: 2px" fxShow fxHide.lt-s>
         <div style="margin: 0px 10px" class="intro">
           This is my playground project to experiment with web technologies and
           tools related to angular. I like guitar, I write angular, this is
@@ -96,7 +92,11 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 
-  <mat-toolbar color="primary" fxFlex fxLayoutAlign="space-between center">
+  <mat-toolbar
+    color="primary"
+    fxFlex="0 1 auto"
+    fxLayoutAlign="space-between center"
+  >
     <section>
       <small>
         © 2022
