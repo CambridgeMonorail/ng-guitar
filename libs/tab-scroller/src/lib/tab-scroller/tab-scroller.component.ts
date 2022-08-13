@@ -1,4 +1,3 @@
-import { Measure } from './../model/measure';
 import {
   animate,
   animateChild,
@@ -8,15 +7,10 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  NgZone,
-  Output,
-} from '@angular/core';
+import { AfterViewInit, Component, Input, NgZone } from '@angular/core';
+
 import { Notes } from '../model/notes';
+import { Measure } from './../model/measure';
 
 /**
  * Display Scrolling Tabs
@@ -51,35 +45,96 @@ import { Notes } from '../model/notes';
   ],
 })
 export class TabScrollerComponent implements AfterViewInit {
-  private counter = 5;
-  private list = [1, 2, 3, 4];
-
-  private mainContext!: CanvasRenderingContext2D;
-
+  /**
+   * @ignore
+   */
   private id = 0;
 
-  private isRunning = false;
-  private tickCount = 0;
+  /**
+   * @ignore
+   */
   private numberOfStrings = 6;
+
+  /**
+   * @ignore
+   */
   private widthToHeightRatio = 9.312;
+
+  /**
+   * @ignore
+   */
   private width = 300;
+
+  /**
+   * @ignore
+   */
   private height = 300;
+
+  /**
+   * @ignore
+   */
   private pixelsPerMillisecond = 1;
 
+  /**
+   * @ignore
+   */
   private _beat = 0;
+
+  /**
+   * @ignore
+   */
   private _bpm = 60;
 
+  /**
+   * @ignore
+   */
   private _resolution = 4;
+
+  /**
+   * @ignore
+   */
   private lastBeat = 0;
 
   private noteHeight = 0;
+  /**
+   * @ignore
+   */
   private noteWidth = 56;
 
+  /**
+   * @ignore
+   */
   _notesList: Notes[] = [];
+
+  /**
+   * @ignore
+   */
   _tuning: Notes = { notes: ['E', 'B', 'G', 'D', 'A', 'E'] };
 
+  /**
+   * @ignore
+   */
   public capacity = 0;
+
+  /**
+   * @ignore
+   */
   public currentBeats = 0;
+
+  /**
+   * @ignore
+   */
+  isRunning = false;
+
+  /**
+   * @ignore
+   */
+  velocity = 0;
+
+  /**
+   * @ignore
+   */
+  tickCount = 0;
 
   /**
    * Sets tab scrolling state
@@ -145,7 +200,6 @@ export class TabScrollerComponent implements AfterViewInit {
   }
 
   constructor(private ngZone: NgZone) {}
-
   ngAfterViewInit(): void {
     this.width = window.innerWidth;
     this.height = this.getHeight();
@@ -180,23 +234,28 @@ export class TabScrollerComponent implements AfterViewInit {
     // this.noteMovementPerMillisecond = this.pixelsPerMillisecond;
   }
 
-  getVelocity() {
-    const velocity = this.bpm / 60;
-  }
-
   getNoteHeight(): number {
     const noteHeight = this.height / (this.numberOfStrings + 1) - 2;
     return noteHeight;
   }
 
+  /**
+   * @ignore
+   */
   getNoteWidth(): number {
     return 62;
   }
 
+  /**
+   * @ignore
+   */
   private start(): void {
     this.isRunning = true;
   }
 
+  /**
+   * @ignore
+   */
   private click(): void {
     if (this._beat !== this.lastBeat) {
       console.log('beat', this._beat);
@@ -206,23 +265,42 @@ export class TabScrollerComponent implements AfterViewInit {
     }
   }
 
+  /**
+   * @ignore
+   */
   private stop(): void {
     this._notesList = [];
     this.isRunning = false;
     cancelAnimationFrame(this.id);
   }
 
+  /**
+   * @ignore
+   */
   private getHeight(): number {
     return this.width / this.widthToHeightRatio;
   }
 
+  /**
+   * @ignore
+   */
   remove(index: number) {
     if (!this._notesList.length) return;
     this._notesList.splice(index, 1);
   }
 
+  /**
+   * @ignore
+   */
   add(value: Notes[]) {
     this._notesList.push(...value);
     this.currentBeats = this._notesList.length;
+  }
+
+  /**
+   * @ignore
+   */
+  getVelocity() {
+    this.velocity = this.bpm / 60;
   }
 }
