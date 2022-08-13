@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { FretboardComponent } from './fretboard.component';
 import { Fretboard } from './models/fretboard.interface';
@@ -7,7 +9,7 @@ export default {
   component: FretboardComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [BrowserAnimationsModule, CommonModule],
     }),
   ],
 } as Meta<FretboardComponent>;
