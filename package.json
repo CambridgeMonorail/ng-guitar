@@ -17,6 +17,7 @@
     "build:compodoc-json": "compodoc -p ./tsconfig.doc.json -e json -d .",
     "build:compodoc": "compodoc -p ./tsconfig.doc.json --theme theme-material --output ./dist/apps/demo/docs",
     "build:demo": "ng build --base-href=/ng-guitar/",
+    "build:dep-graph": "nx graph --file=./dependency-graph/dependency-graph.html",
     "build": "ng build",
     "dep-graph": "nx dep-graph",
     "docs": "node tools/scripts/generate-docs.js",
