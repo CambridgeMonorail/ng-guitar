@@ -1,6 +1,6 @@
 <div id="top"></div>
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/TimDMorris/ng-guitar">
     <img src="dev-docs/images/logo-152x152.png" alt="Logo" width="80" height="80">
   </a>
 </div>
@@ -104,7 +104,7 @@ NG-Guitar is a collection of components for Angular Material that are intended t
 
 Here's why:
 
-- There's lots of great guitar focussed projects on GitHub but none I could find on this tech stack.
+- There's lots of great guitar focussed projects on GitHub but none I could find on this [tech stack](dev-docs/tech-stack.md).
 - I was looking for a way to build a guitar related web application that was easy to use and easy to maintain.
 - It's really not a good idea for anyone to become [the ghost that codes](https://www.troyhunt.com/the-ghost-who-codes-how-anonymity-is/).
 - It's a playground for me to experiment with web technologies well away from anything that may have any IP overlap with my day job :wink:
@@ -113,23 +113,25 @@ Here's why:
 
 ### Built With
 
+This project is built using:
+
+<p>
 <a href="https://angular.io/" target="_blank"><img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" /></a>
-
 <a href="https://material.angular.io/" target="_blank"><img alt="Angular Material" src="https://img.shields.io/badge/Angular_Material-3F51B5?style=for-the-badge&logo=angular&logoColor=white+" /></a>
-
 <a href="https://www.typescriptlang.org/" target="_blank"><img alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" /></a>
-
 <a href="https://sass-lang.com/" target="_blank"><img alt="Sass" src="https://img.shields.io/badge/Sass-CC6699.svg?style=for-the-badge&logo=Sass&logoColor=white" /></a>
-
 <a href="https://nx.dev/" target="_blank"><img alt="Nrwl Nx" src="https://img.shields.io/badge/Nx-143055.svg?style=for-the-badge&logo=Nx&logoColor=white" /></a>
-
+<a href="https://eslint.org/" target="_blank"><img alt="ESLint" src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" /></a>
+<a href="https://prettier.io/" target="_blank"><img alt="Prettier" src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" /></a>
 <a href="https://storybook.js.org/" target="_blank"><img alt="Storybook" src="https://img.shields.io/badge/storybook-F74480?style=for-the-badge&logo=storybook&logoColor=white+" /></a>
-
+<a href="https://jestjs.io/" target="_blank"><img alt="Jest" src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
+<a href="https://www.cypress.io/" target="_blank"><img alt="Cypress" src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" /></a>
 <a href="https://code.visualstudio.com/" target="_blank"><img alt="VS Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?style=for-the-badge&logo=Visual-Studio-Code&logoColor=white" /></a>
-
 <a href="https://docs.github.com/en/actions/" target="_blank"><img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=for-the-badge&logo=GitHub-Actions&logoColor=white" /></a>
-
 <a href="https://docs.github.com/en/pages" target="_blank"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-222222.svg?style=for-the-badge&logo=GitHub-Pages&logoColor=white" /></a>
+</p>
+
+Given the golden rule of development is [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it), then to mangle a musical metaphor, the obvious question when you first look at this project is _why is it turned [up to eleven](https://en.wikipedia.org/wiki/Up_to_eleven#:~:text=%22Up%20to%20eleven%22%2C%20also,the%20usual%20zero%20to%20ten.)_. Or for those who don't speak [tap](https://en.wikiquote.org/wiki/This_Is_Spinal_Tap) _why is it so [extra](https://www.merriam-webster.com/dictionary/extra)_. Why is there quite so much code and supporting infrastructure for what could be implemented quite simply? Well as I don't have a lot of time to work on this then I wanted anything I built to be easy to support and maintain. If you would like to know more about the sights, the sounds... the smells... of the technologies I use then please feel free to check out the [Technölogy Stäck](dev-docs/tech-stack.md) page.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,13 +143,13 @@ It's really easy to get started with NG-Guitar.
 
 ### Prerequisites
 
-These components are built for use on top of Angular Material and TypeScript. You'll need to have a project based on this tech stack in order to use them.
+These components are currently built for use on top of Angular Material and TypeScript. You'll need to have a project based on this tech stack in order to use them.
 
 <!-- For Consumers -->
 
 ### For Component Consumers
 
-This is a new preoject under active development. There will be refactoring! The intention is once the components reach a suitable level of maturity they will be published as packages. If you are interested in checking out progress and how they are evolving see the [Storybook]() or [Compodoc]() pages
+This is a new project under active development. There will be refactoring! The intention is once the components reach a suitable level of maturity they will be published as packages. If you are interested in checking out progress and how they are evolving see the [Storybook](https://timdmorris.github.io/ng-guitar/shared-storybook/index.html) or [Compodoc](https://timdmorris.github.io/ng-guitar/docs/index.html) pages
 
 When the components are published as packages, we will add instructions here so you will be able to use them in your own projects.
 
