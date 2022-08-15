@@ -39,7 +39,7 @@ jobs:
         run: npm run test
 
       - name: Build Demo Site
-        run: npm run build:demo
+        run: npm run build:demo --omit-dev
 
       - name: Build JSON Docs
         run: npm run build:compodoc-json
@@ -49,6 +49,14 @@ jobs:
 
       - name: Build Storybook
         run: npm run build shared-storybook
+
+      - name: install lighthouse CI
+        run: npm install -g @lhci/cli@0.4.x
+
+      - name: audit
+        run: |
+          npm run lighthouse
+          exit 0
 
       - name: Release
         run: npx semantic-release
