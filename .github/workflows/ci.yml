@@ -50,13 +50,13 @@ jobs:
       - name: Build Storybook
         run: npm run build shared-storybook
 
-      - name: install lighthouse CI
-        run: npm install -g @lhci/cli@0.9.x
-
-      - name: audit
-        run: |
-          npm run lighthouse
-          exit 0
+      #      - name: install lighthouse CI
+      #        run: npm install -g @lhci/cli@0.9.x
+      #
+      #      - name: audit
+      #        run: |
+      #         npm run lighthouse
+      #          exit 0
 
       - name: Release
         run: npx semantic-release
