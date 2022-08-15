@@ -1,35 +1,37 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <title>Demo</title>
+    <meta name="description" content="The Demo Site for the NG-Guitar component library.">
     <base href="/ng-guitar/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <style type="text/css">@font-face{font-family:'Outfit';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/outfit/v6/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Outfit';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/outfit/v6/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Outfit';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/outfit/v6/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
-    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/favicon/assets/favicon/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png">
+    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/materialicons/v138/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/assets/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png">
     <link rel="icon" type="image/png" href="assets/favicon/assets/favicon/favicon-196x196.png" sizes="196x196">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-128.png" sizes="128x128">
-    <meta name="application-name" content="&nbsp;">
+    <meta name="application-name" content="NG-Guitar">
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
     <meta name="msapplication-square70x70logo" content="assets/favicon/mstile-70x70.png">
     <meta name="msapplication-square150x150logo" content="assets/favicon/mstile-150x150.png">
     <meta name="msapplication-wide310x150logo" content="assets/favicon/mstile-310x150.png">
     <meta name="msapplication-square310x310logo" content="assets/favicon/mstile-310x310.png">
-  <style>@import"https://fonts.googleapis.com/icon?family=Material+Icons+Round";@import"https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap";.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal}.mat-typography{font:400 14px/20px Outfit;letter-spacing:.0179em}body{--primary-color:#b8c1ec;--primary-lighter-color:#eaecf9;--primary-darker-color:#a0abe4;--text-primary-color:rgba(35, 41, 70, .87);--text-primary-lighter-color:rgba(35, 41, 70, .87);--text-primary-darker-color:rgba(35, 41, 70, .87)}body{--accent-color:#eebbc3;--accent-lighter-color:#faebed;--accent-darker-color:#e7a4ae;--text-accent-color:rgba(35, 41, 70, .87);--text-accent-lighter-color:rgba(35, 41, 70, .87);--text-accent-darker-color:rgba(35, 41, 70, .87)}body{--warn-color:#85537e;--warn-lighter-color:#dacbd8;--warn-darker-color:#683961;--text-warn-color:#b8c1ec;--text-warn-lighter-color:rgba(35, 41, 70, .87);--text-warn-darker-color:#b8c1ec}html,body{height:100%;width:100%}body{margin:0;font-family:Outfit,Helvetica Neue,sans-serif}</style><link rel="stylesheet" href="styles.bd1dc64e67e7957a.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.bd1dc64e67e7957a.css"></noscript></head>
+  <style>@import"https://fonts.googleapis.com/icon?family=Material+Icons+Round";@import"https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap";.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal}.mat-typography{font:400 14px/20px Outfit;letter-spacing:.0179em}body{--primary-color:#b8c1ec;--primary-lighter-color:#eaecf9;--primary-darker-color:#a0abe4;--text-primary-color:rgba(35, 41, 70, .87);--text-primary-lighter-color:rgba(35, 41, 70, .87);--text-primary-darker-color:rgba(35, 41, 70, .87)}body{--accent-color:#eebbc3;--accent-lighter-color:#faebed;--accent-darker-color:#e7a4ae;--text-accent-color:rgba(35, 41, 70, .87);--text-accent-lighter-color:rgba(35, 41, 70, .87);--text-accent-darker-color:rgba(35, 41, 70, .87)}body{--warn-color:#85537e;--warn-lighter-color:#dacbd8;--warn-darker-color:#683961;--text-warn-color:#b8c1ec;--text-warn-lighter-color:rgba(35, 41, 70, .87);--text-warn-darker-color:#b8c1ec}html,body{height:100%;width:100%}body{margin:0;font-family:Outfit,Helvetica Neue,sans-serif}</style><link rel="stylesheet" href="styles.76b72ababaca98e2.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.76b72ababaca98e2.css"></noscript></head>
   <body class="mat-typography" style="background-color: blueviolet">
     <ng-guitar-root style="width: 100vh; height: 100vh"></ng-guitar-root>
-  <script src="runtime.3494cd2e82ae820a.js" type="module"></script><script src="polyfills.271b30422ade242a.js" type="module"></script><script src="main.04f667c52fa6647d.js" type="module"></script>
+  <script src="runtime.3494cd2e82ae820a.js" type="module"></script><script src="polyfills.271b30422ade242a.js" type="module"></script><script src="main.f7ea4addd3e7790c.js" type="module"></script>
 
 </body></html>

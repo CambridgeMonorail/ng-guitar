@@ -361,6 +361,7 @@ export class FretboardComponent {
         &lt;div
           class&#x3D;&quot;fret-content&quot;
           [ngClass]&#x3D;&quot;{ notecircle: fret.inKey &#x3D;&#x3D;&#x3D; true }&quot;
+          [attr.aria-disabled]&#x3D;&quot;!fret.inKey&quot;
         &gt;
           {{ fret.note }}
         &lt;/div&gt;
@@ -496,7 +497,7 @@ table td.fret-marker {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><table>  <thead>    <tr>      <th *ngFor="let item of [].constructor(_frets); let i = index">        {{ i }}      </th>    </tr>  </thead>  <tbody>    <tr *ngFor="let string of _fretboard?.strings">      <td        class="fret"        *ngFor="let fret of string.notes; let i = index"        [ngClass]="{ nut: i === 0 }"      >        <div          class="fret-content"          [ngClass]="{ notecircle: fret.inKey === true }"        >          {{ fret.note }}        </div>      </td>    </tr>  </tbody>  <tfoot>    <tr>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th>:</th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>    </tr>  </tfoot></table></div>'
+        var COMPONENT_TEMPLATE = '<div><table>  <thead>    <tr>      <th *ngFor="let item of [].constructor(_frets); let i = index">        {{ i }}      </th>    </tr>  </thead>  <tbody>    <tr *ngFor="let string of _fretboard?.strings">      <td        class="fret"        *ngFor="let fret of string.notes; let i = index"        [ngClass]="{ nut: i === 0 }"      >        <div          class="fret-content"          [ngClass]="{ notecircle: fret.inKey === true }"          [attr.aria-disabled]="!fret.inKey"        >          {{ fret.note }}        </div>      </td>    </tr>  </tbody>  <tfoot>    <tr>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th>:</th>      <th>&nbsp;</th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>      <th><strong>&bull;</strong></th>      <th>&nbsp;</th>    </tr>  </tfoot></table></div>'
     var COMPONENTS = [{'name': 'EtudeComponent', 'selector': 'ng-guitar-etude'},{'name': 'FretboardComponent', 'selector': 'ng-guitar-fretboard'},{'name': 'FretComponent', 'selector': 'ng-guitar-fret'},{'name': 'NoteComponent', 'selector': 'ng-guitar-note'},{'name': 'TabScrollerComponent', 'selector': 'ng-guitar-tab-scroller'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FretboardComponent'};
