@@ -1,6 +1,13 @@
 <div id="top"></div>
+<div align="center">
+  <a href="https://github.com/TimDMorris/ng-guitar">
+    <img src="images/logo-152x152.png" alt="Logo" width="80" height="80">
+  </a>
+</div>
 
-# Technology Stack
+<h1 align="center">NG-GUITAR Technology Stack</h1>
+
+<br/>
 
 I find OSS projects a great resource when I want to learn how other people have solved specific challenges, however while they often have great documentation for **_what_** technology they are using, they don't always have great documentation for **_why_** and **_how_** they are using it.
 
@@ -123,11 +130,11 @@ The [ng-guitar repo](https://github.com/TimDMorris/ng-guitar) is a Nx Monorepo.
 
 <a href="https://angular.io/" target="_blank"><img alt="Angular" src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" /></a>
 
-[Angular](https://angular.io/) is an opinionated front end framework. **_Framework_** being the key point to stress. This consistent tooling out of the box makes it particularly useful for Teams who lack the skills or time required for building with Tools like React where each team needs to select the most appropriate options from multiple potential approaches to solving any development challenge.
+[Angular](https://angular.io/) is an opinionated front end framework. **_Framework_** being the key point to stress. This consistent tooling out of the box makes it particularly useful for Teams who lack the skills or time required for building with tools like React where each team needs to select the most appropriate options from multiple potential approaches to solving any development challenge.
 
 A key differentiator between Angular and React is that Angular used to have a notorious steep learning curve while React was much easier to learn and reason about. With the introduction of [Stand Alone Components](https://angular.io/guide/standalone-components) simplifying Angular and [Hooks](https://reactjs.org/docs/hooks-intro.html) adding potential complexity to React, the two tools have become very similar.
 
-It should be noted that both tool sets still have distinct strengths, however for a SPA like this one the Angular tool set is particularly appropriate.
+It should be noted that both tool sets still have distinct strengths, there are specific kinds of project where React is a much better choice, but for a SPA like this one  the Angular tool set is particularly appropriate.
 
 ### Angular Material
 
@@ -154,7 +161,7 @@ This project is built with [Angular's Strict mode](https://javascript.plainengli
 
 <a href="https://sass-lang.com/" target="_blank"><img alt="Sass" src="https://img.shields.io/badge/Sass-CC6699.svg?style=for-the-badge&logo=Sass&logoColor=white" /></a>
 
-At the current time this project makes limited use of [SASS](https://sass-lang.com/), but my past experience has been the ability to use variables, mixins, nested rule, functions and all the other goodies has made it a real accelerator for my projects.
+At the current time this project makes limited use of specific [SASS](https://sass-lang.com/) features, but my past experience has been the ability to use variables, mixins, nested rule, functions and all the other goodies has made it a real accelerator for my projects.
 
 This project already has some of the foundations in place for theme switching so expect to see that and dark mode added shortly.
 
@@ -172,52 +179,62 @@ Although the current [CI/CD pipeline](https://github.com/TimDMorris/ng-guitar/tr
 
 <a href="https://prettier.io/" target="_blank"><img alt="Prettier" src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" /></a>
 
-[Prettier](https://prettier.io/)
+Consistent formatting a styling across a code base makes it a lot easier to work with.  [Prettier](https://prettier.io/) saves a lot of time and effort because it can be configured to autoformat on save.  I typically include it in the VS Code workspace settings so all work
 
 ### Storybook
 
 <a href="https://storybook.js.org/" target="_blank"><img alt="Storybook" src="https://img.shields.io/badge/storybook-F74480?style=for-the-badge&logo=storybook&logoColor=white+" /></a>
 
-[Storybook](https://storybook.js.org/)
+I'm a big fan of [Storybook](https://storybook.js.org/) as it allows the development of components in isolation.  This is a great tool to use when you are working on a new component or feature and want to test it out.  It provides interactive controls so you can manipulate the component and see the results immediately.  Additionally it can enhanced with plugins which allow the validation of accessibility and can be used to generate tests cases for e2e validation.
 
 ### Jest
 
 <a href="https://jestjs.io/" target="_blank"><img alt="Jest" src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
 
-[Jest](https://jestjs.io/)
+For my production projects I use [Jest](https://jestjs.io/) for Unit testing and typically set coverage thresholds to ~80%.  I specifically like the ability Jest offers to run tests in parallel  and keep them isolated so cases don't pollute other validation.
+
+The ng-guitar project is still immature and a high level of refactoring is planned to improve the quality of the code.  At the current time the Unit Test coverage is minimal, but I plan to combine Jest with [Storybook Snapshot Testing](https://storybook.js.org/docs/react/writing-tests/snapshot-testing/) to improve the quality of the code.
 
 ### Cypress
 
 <a href="https://www.cypress.io/" target="_blank"><img alt="Cypress" src="https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white" /></a>
 
-[Cypress](https://www.cypress.io/)
+[Cypress](https://www.cypress.io/) is configured but not yet used in this project.  The reason I prefer Cypress over something like Selenium is the developer centric focus of the tooling.  I've wasted more time than I would like to think about in the past trying to debug e2e test, but the tools Cypress provides like time-travel debugging really make it a joy to work with.
+
+The plan
 
 ### VS Code
 
 <a href="https://code.visualstudio.com/" target="_blank"><img alt="VS Code" src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?style=for-the-badge&logo=Visual-Studio-Code&logoColor=white" /></a>
 
-[VS Code](https://code.visualstudio.com/)
+[VS Code](https://code.visualstudio.com/) is free, Open Source, platform agnostic, highly configurable and extensible with optional extensions to extend it's functionality, it's the best tool I've used to develop web applications.  Check out [Useful VS Code Extensions For Front-End Developers](https://www.smashingmagazine.com/2021/05/useful-vs-code-extensions-web-developers/).
 
 ### GitHub Actions
 
 <a href="https://docs.github.com/en/actions/" target="_blank"><img alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-2088FF.svg?style=for-the-badge&logo=GitHub-Actions&logoColor=white" /></a>
 
-[GitHub Actions](https://github.com/features/actions)
+While in my day job I currently use Jenkins for ng-guitar I'm currently using [GitHub Actions](https://github.com/features/actions) to automate the build and test process.  It give me lightweight CI/CD with minimal fuss.
+
+Note I currently pay for a GitHub Pro account to give myself a higher level of storage and more minutes per month.  It's worth noting if you are facing challenges with the number fo minutes included with the free account you should make sure you run as many jobs as possible on Linux runners, Jobs that run on Windows and macOS runners that GitHub hosts consume minutes at a rate this is 2 and 10 times higher!
 
 ### GitHub Pages
 
 <a href="https://docs.github.com/en/pages" target="_blank"><img alt="GitHub Pages" src="https://img.shields.io/badge/GitHub%20Pages-222222.svg?style=for-the-badge&logo=GitHub-Pages&logoColor=white" /></a>
 
-[GitHub Pages](https://pages.github.com/)
+It's easy, it's included with each project repo, I intend to continue to use [GitHub Pages](https://pages.github.com/) for ng-guitar for the forseeable future.
 
 ### GitHub CodeQL
 
 <a href="https://codeql.github.com/" target="_blank"><img alt="GitHub Copilot" src="https://img.shields.io/badge/GitHub%20CodeQL-0F305F.svg?style=for-the-badge&logo=GitHub&logoColor=white" ></a>
 
-[GitHub CodeQL](https://codeql.github.com/)
+I work in FinTech during the day time and I'm pretty twitchy about the idea of accidentally shipping code with vulnerabilities in. [GitHub CodeQL](https://codeql.github.com/) is a great choice for this purpose provided the project you are building is Open Source.
 
 ### GitHub Copilot
 
 <a href="https://github.com/features/copilot" target="_blank"><img alt="GitHub Copilot" src="https://img.shields.io/badge/GitHub%20Copilot-2C2546.svg?style=for-the-badge&logo=GitHub&logoColor=white" ></a>
 
-[GitHub Copilot](https://github.com/features/copilot)
+I know [a lot of people dislike](https://sfconservancy.org/blog/2022/jun/30/give-up-github-launch/) [GitHub Copilot](https://github.com/features/copilot) because of how it was built and other worry it is deskilling developers but given the amount of code I see that appears to have been written by***[Full Stack Overflow Developers](https://www.sitepoint.com/full-stack-overflow-developer/)*** I'm not sure it's actively making things worse for a lot odf people.
+
+I've been trying it out for this project and as someone who can already write code I'm pretty happy with the results.  Where it really excels though is where you are trying to do something you have never done before (like the yml config for GitHub actions in this project).
+
+For me personally half the battle when working with Open Source software, with documentation of variable quality, is finding what terms I need to search for in their docs to actually get anything done.  I think if you use copilot to scaffold out code and follow up and learn how to actually do something properly it's a great tool to use.  Especially for this kind of project where you have limited time and you are looking to build an initial MVP as quickly as possible.
