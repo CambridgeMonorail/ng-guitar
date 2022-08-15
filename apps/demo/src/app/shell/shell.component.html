@@ -1,6 +1,11 @@
 <div class="shell-wrapper" fxLayout="column" fxLayoutAlign="start" fxFlexFill>
   <mat-toolbar class="mat-elevation-z1" fxFlex="0 1 auto">
-    <button mat-icon-button id="menu" (click)="appDrawer.toggle()">
+    <button
+      mat-icon-button
+      id="menu"
+      (click)="appDrawer.toggle()"
+      aria-label="Open the menu"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <span class="header"><strong>NG GUITAR</strong> </span>
@@ -25,21 +30,21 @@
       (openedChange)="openedChange(appDrawer.opened)"
     >
       <mat-nav-list class="dashboard">
-        <a mat-list-item class="disabled">
+        <a mat-list-item class="disabled" href="#" aria-disabled="true">
           <mat-icon mat-list-icon>account_circle</mat-icon>
           <p matLine>Progress</p>
         </a>
         <mat-divider></mat-divider>
 
-        <a mat-list-item class="disabled">
+        <a mat-list-item class="disabled" href="#" aria-disabled="true">
           <mat-icon mat-list-icon>inbox</mat-icon>
           <p matLine>Settings</p>
         </a>
-        <a mat-list-item class="disabled">
+        <a mat-list-item class="disabled" href="#" aria-disabled="true">
           <mat-icon mat-list-icon>star</mat-icon>
           <p matLine>Help</p>
         </a>
-        <a mat-list-item class="disabled">
+        <a mat-list-item class="disabled" href="#" aria-disabled="true">
           <mat-icon mat-list-icon>drafts</mat-icon>
           <p matLine>About</p>
         </a>

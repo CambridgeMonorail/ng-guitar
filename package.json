@@ -26,6 +26,7 @@
     "format:write": "nx format:write",
     "format": "nx format:write",
     "help": "nx help",
+    "lighthouse": "lhci autorun --assert.preset=lighthouse:recommended --collect.settings.chromeFlags='--no-sandbox' -collect.settings.emulatedFormFactor='desktop'",
     "lint": "nx workspace-lint && ng lint",
     "local-run": "npx http-server ./dist/apps/demo/ -p 4200",
     "ng": "nx",
@@ -162,6 +163,7 @@
         "@semantic-release/git",
         {
           "assets": [
+            ".lighthouseci",
             "CHANGELOG.md",
             "package.json"
           ],

@@ -12,11 +12,13 @@
   font-family: 'Amplify';
   src: local('Amplify'),
     url(./assets/fonts/Amplify_PersonalUseOnly.ttf) format('truetype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Magneto';
   src: local('Magneto'), url(./assets/fonts/magneto.ttf) format('truetype');
+  font-display: swap;
 }
 
 /**

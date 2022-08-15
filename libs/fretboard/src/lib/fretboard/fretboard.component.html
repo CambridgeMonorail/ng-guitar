@@ -16,6 +16,7 @@
         <div
           class="fret-content"
           [ngClass]="{ notecircle: fret.inKey === true }"
+          [attr.aria-disabled]="!fret.inKey"
         >
           {{ fret.note }}
         </div>

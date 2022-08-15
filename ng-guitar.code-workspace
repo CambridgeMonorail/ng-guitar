@@ -6,7 +6,9 @@
 	],
 	"settings": {
 		"cSpell.words": [
+			"autorun",
 			"brandimage",
+			"cacheable",
 			"commitlint",
 			"compodoc",
 			"deepskyblue",
@@ -14,6 +16,10 @@
 			"Fretboard",
 			"hotpink",
 			"jscutlery",
+			"lhci",
+			"lighthouseci",
+			"ngcc",
+			"notecircle",
 			"nrwl",
 			"packagr",
 			"qiwi",
