@@ -1,7 +1,7 @@
 {
   "name": "ng-guitar",
   "packageManager": "npm@6.x",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "Angular UI components for building applications for guitarists.",
   "license": "MIT",
   "scripts": {
