@@ -1,3 +1,9 @@
+<!-- This readme.md file is enriched at build time using https://github.com/DavidWells/markdown-magic
+
+This is driven by the script here .\tools\scripts\generate-markdown.js
+
+Do not modify any content within the ⛔️ AUTO-GENERATED-CONTENT tags manually -->
+
 <div id="top"></div>
 <div align="center">
   <a href="https://github.com/TimDMorris/ng-guitar">
@@ -10,13 +16,20 @@
 
 <br/>
 
-Guitar Related Components built for Angular Material.
+<!-- ⛔️ AUTO-GENERATED-CONTENT:START (PKGJSON:template=${description}) -->
+
+Angular UI components for building applications for guitarists.
+
+<!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
 <br/>
 
 <div>
 <p>
-<img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+
+<!-- ⛔️ AUTO-GENERATED-CONTENT:START (PKGJSON:template=<img alt="Version" src="https://img.shields.io/badge/version-${version}-blue.svg?cacheSeconds=2592000" />) -->
+<img alt="Version" src="https://img.shields.io/badge/version-1.14.0-blue.svg?cacheSeconds=2592000" />
+<!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
   <a href="http://localhost:4200" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -52,41 +65,34 @@ Guitar Related Components built for Angular Material.
 
 <br/>
 
-<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+<!-- ⛔️ AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText=Table of Contents&excludeText=For Those About To Code We Salute You) -->
 <details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#for-component-consumers">For Component Consumers</a></li>
-        <li><a href="#for-contributors">For Contributors</a></li>
-        <ul>
-          <li><a href="#contributing">Contributing</a></li>
-          <li><a href="#install">Install</a></li>
-          <li><a href="#usage">Usage</a></li>
-          <li><a href="#run-tests">Run tests</a></li>
-          <li><a href="#committing">Committing</a></li>
-        </ul>
-      </ul>
-    </li>
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#bugs-and-refactor">Bugs and Refactor</a></li>
-    <li><a href="#show-your-support">Show your support</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#authoe">Author</a></li>
-    <li><a href="#inspired-by">Inspired By</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
+<summary>Table of Contents</summary>
+
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [For Component Consumers](#for-component-consumers)
+  - [For Contributors](#for-contributors)
+    - [Contributing](#contributing)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Committing](#committing)
+- [Vision](#vision)
+  - [Roadmap](#roadmap)
+  - [Bugs and Refactor](#bugs-and-refactor)
+- [Show your support](#show-your-support)
+- [📝 License](#-license)
+- [Author](#author)
+- [Inspired By](#inspired-by)
+- [Acknowledgements](#acknowledgements)
+
 </details>
+<!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
 <br/>
 
