@@ -31,6 +31,6 @@ export default create({
   inputTextColor: 'black',
   inputBorderRadius: 4,
   brandTitle: 'ng-guitar storybook',
-  brandUrl: 'https://timdmorris.github.io/ng-guitar/',
+  brandUrl: 'https://cambridgemonorail.github.io/ng-guitar/',
   brandimage: './img/logo.png',
 });
