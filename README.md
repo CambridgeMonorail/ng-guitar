@@ -42,9 +42,9 @@ Angular UI components for building applications for guitarists.
 <br/>
 
 <p>
-<a href="https://timdmorris.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
-<a href="https://timdmorris.github.io/ng-guitar/shared-storybook/index.html"><img src="https://img.shields.io/badge/View_components-Storybook-F74480?style=for-the-badge" alt="View demo - GH Pages"></a>
-<a href="https://timdmorris.github.io/ng-guitar/docs/index.html"><img src="https://img.shields.io/badge/View_documents-compodoc-1F4E94?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://cambridgemonorail.github.io/ng-guitar/"><img src="https://img.shields.io/badge/View_demo-GH_Pages-2ea44f?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://cambridgemonorail.github.io/ng-guitar/shared-storybook/index.html"><img src="https://img.shields.io/badge/View_components-Storybook-F74480?style=for-the-badge" alt="View demo - GH Pages"></a>
+<a href="https://cambridgemonorail.github.io/ng-guitar/docs/index.html"><img src="https://img.shields.io/badge/View_documents-compodoc-1F4E94?style=for-the-badge" alt="View demo - GH Pages"></a>
 </p>
 <br/>
 <div>
@@ -101,7 +101,7 @@ Angular UI components for building applications for guitarists.
 ## About The Project
 
 <div align="center">
-  <a href="https://timdmorris.github.io/ng-guitar/">
+  <a href="https://cambridgemonorail.github.io/ng-guitar/">
     <img src="dev-docs/images/screenshot.png" alt="Demo Screenshot" >
   </a>
 </div>
@@ -157,11 +157,11 @@ These components are currently built for use on top of Angular Material and Type
 
 ### For Component Consumers
 
-This is a new project under active development. There will be refactoring! The intention is once the components reach a suitable level of maturity they will be published as packages. If you are interested in checking out progress and how they are evolving see the [Storybook](https://timdmorris.github.io/ng-guitar/shared-storybook/index.html) or [Compodoc](https://timdmorris.github.io/ng-guitar/docs/index.html) pages
+This is a new project under active development. There will be refactoring! The intention is once the components reach a suitable level of maturity they will be published as packages. If you are interested in checking out progress and how they are evolving see the [Storybook](https://cambridgemonorail.github.io/ng-guitar/shared-storybook/index.html) or [Compodoc](https://cambridgemonorail.github.io/ng-guitar/docs/index.html) pages
 
 When the components are published as packages, we will add instructions here so you will be able to use them in your own projects.
 
-Examples of the Components in use and [the latest Demo can be found here](https://timdmorris.github.io/ng-guitar/).
+Examples of the Components in use and [the latest Demo can be found here](https://cambridgemonorail.github.io/ng-guitar/).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -270,7 +270,7 @@ This project is [MIT](https://github.com/TimDMorris/ng-guitar/blob/main/LICENSE.
 
 👤 **TimDMorris**
 
-- Website: <https://timdmorris.github.io/ng-guitar/>
+- Website: <https://cambridgemonorail.github.io/ng-guitar/>
 - Twitter: [@TimDMorris](https://twitter.com/TimDMorris)
 - Github: [@TimDMorris](https://github.com/TimDMorris)
 - LinkedIn: [@timdmorris](https://linkedin.com/in/timdmorris)
