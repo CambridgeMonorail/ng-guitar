@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/TimDMorris/ng-guitar/compare/v1.14.0...v1.14.1) (2022-08-21)
+
+
+### Bug Fixes
+
+* **docs:** update links ([246a9c3](https://github.com/TimDMorris/ng-guitar/commit/246a9c371f04984a9bf752be7fb17b4b55c1806e))
+
 # [1.14.0](https://github.com/TimDMorris/ng-guitar/compare/v1.13.0...v1.14.0) (2022-08-15)
 
 
