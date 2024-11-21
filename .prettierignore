@@ -5,3 +5,6 @@ commitlint.config.js
 /dist
 /coverage
 
+
+/.nx/cache
+/.nx/workspace-data

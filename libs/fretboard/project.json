@@ -66,5 +66,6 @@
       }
     }
   },
-  "tags": ["ui"]
+  "tags": ["ui"],
+  "name": "fretboard"
 }
